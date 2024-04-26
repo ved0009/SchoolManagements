@@ -49,6 +49,8 @@ export class ScrmHeaderComponent {
   }
 
   ngOnInit() {
+    this.toggleSidebar();
+
     this.currentTheme = this.themeService.currentTheme;
 
     this.userService.getUsers()

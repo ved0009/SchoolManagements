@@ -12,6 +12,7 @@ import {
   NbSelectModule,
   NbIconModule,
   NbThemeModule,
+  NbCardModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
@@ -41,6 +42,7 @@ import { DARK_THEME } from './styles/theme.dark';
 import { ScrmHeaderComponent } from './components/header/scrm-header/scrm-header.component';
 import { ScrmFooterComponent } from './components/footer/scrm-footer/scrm-footer.component';
 import { ScrmColumnsComponent } from './layouts/scrm-columns/scrm-columns.component';
+import { AuthColumnsComponent } from './layouts/auth-columns/auth-columns.component';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -55,6 +57,7 @@ const NB_MODULES = [
   NbSelectModule,
   NbIconModule,
   NbEvaIconsModule,
+  NbCardModule
 ];
 const COMPONENTS = [
   HeaderComponent,
@@ -66,7 +69,8 @@ const COMPONENTS = [
   OneColumnLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
-  ScrmColumnsComponent
+  ScrmColumnsComponent,
+  AuthColumnsComponent
 ];
 const PIPES = [
   CapitalizePipe,
@@ -79,7 +83,7 @@ const PIPES = [
 @NgModule({
   imports: [CommonModule, ...NB_MODULES],
   exports: [CommonModule, ...PIPES, ...COMPONENTS],
-  declarations: [...COMPONENTS, ...PIPES,  ],
+  declarations: [...COMPONENTS, ...PIPES  ],
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders<ThemeModule> {

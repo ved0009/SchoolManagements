@@ -17,7 +17,7 @@ import { Component } from '@angular/core';
         <ng-content select="router-outlet"></ng-content>
       </nb-layout-column>
 
-      <nb-layout-footer fixed>
+      <nb-layout-footer fixed style="padding: 0%;">
        <ngx-scrm-footer></ngx-scrm-footer>
       </nb-layout-footer>
     </nb-layout>

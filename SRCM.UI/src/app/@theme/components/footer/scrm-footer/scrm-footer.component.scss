@@ -7,15 +7,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-   .created-by{
-    height: 50px;
-  }
+
 
   .socials {
     font-size: 2rem;
 
     a {
-      padding: 0.1rem;
+      padding: 4px;
       color: nb-theme(text-hint-color);
       transition: color ease-out 0.1s;
 
