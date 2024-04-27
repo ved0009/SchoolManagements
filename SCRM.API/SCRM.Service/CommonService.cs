@@ -5,12 +5,18 @@ using SCRM.IService;
 using Microsoft.Extensions.Configuration;
 using MySqlConnector;
 using SCRM.Model;
+using System.Security.Claims;
+using System.Text;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
 
 namespace SCRM.Service
 {
     public class CommonService : ICommonService
     {
         private readonly IDapperConnections _dapper;
+        private static readonly string Secret = "your_secret_key_here";
+
         private Response response;
 
         public CommonService(IDapperConnections dapper)

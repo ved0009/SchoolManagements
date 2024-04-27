@@ -19,6 +19,10 @@
                   name="username"
                   formControlName="username"
                 />
+                <div *ngIf="loginform.get('username').invalid && (loginform.get('username').dirty || loginform.get('username').touched)">
+                  <span class="text-danger">Enter a valid username</span>
+                </div>
+
                 <input
                   nbInput
                   fullWidth
@@ -28,6 +32,9 @@
                   name="password"
                   formControlName="password"
                 />
+                <div *ngIf="loginform.get('password').invalid && (loginform.get('password').dirty || loginform.get('password').touched)">
+                  <span class="text-danger">Enter a valid password</span>
+                </div>
                 <button nbButton class="float-left" [disabled]="this.loginform.invalid"   status="primary" (click)="login()">Login</button>
               </form>
               <p><a href="#">Forgot username or password?</a></p>

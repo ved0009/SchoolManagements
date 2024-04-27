@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SCRM.IService;
+using System.Data;
 
 namespace SCRM.API.Controllers
 {
@@ -17,7 +19,7 @@ namespace SCRM.API.Controllers
         }
 
         [HttpGet("TestDbConnection")]
-
+        [Authorize]
         public IActionResult TestDbConnection()
         {
             var result = _commonService.CheckDb();

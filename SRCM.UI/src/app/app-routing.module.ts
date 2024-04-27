@@ -56,8 +56,8 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'scrm', pathMatch: 'full' },
-  { path: '**', redirectTo: 'scrm' },
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+  { path: '**', redirectTo: 'auth' },
 ];
 
 const config: ExtraOptions = {

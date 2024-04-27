@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace SCRM.IService
 {
-    public interface ICommonService
+    public interface IAuth
     {
-        Response CheckDb();
-     }
+        Response Login(MUserLogin login);   
+    }
 }
