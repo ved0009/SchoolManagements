@@ -29,26 +29,23 @@ namespace SCRM.Service
                 try
                 {
                     var dbparams = new DynamicParameters();
-                    dbparams.Add("", login.UserName, DbType.String);
-                    dbparams.Add("", login.Password, DbType.String);
+                    dbparams.Add("pusername", login.UserName, DbType.String);
+                    dbparams.Add("ppassword", login.Password, DbType.String);
                     var result = new MUserLoginDetail();
-                    result = _dapper.Get<MUserLoginDetail>("sp_get_all_users", dbparams, commandType: CommandType.StoredProcedure);
-                    if (result.UserId != 0)
+                    result = _dapper.Get<MUserLoginDetail>("sp_user_login", dbparams, commandType: CommandType.StoredProcedure);
+                    if (result != null)
                     {
-
                         var token = Helper.GenerateToken(result,_config);
-
                         response.totalRecords = 1;
                         response.message = "Success";
                         response.success = true;
                         response.responseData = result;
                         response.token = token;
-
                     }
                     else
                     {
                         response.totalRecords = 0;
-                        response.message = "No record found";
+                        response.message = login.UserName + " " + "does not exists please contact to administrator";
                         response.success = false;
                         response.responseData = null;
 

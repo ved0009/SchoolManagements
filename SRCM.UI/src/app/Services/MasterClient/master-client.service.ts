@@ -12,6 +12,9 @@ export class MasterClientService {
 
   constructor(private http: HttpClient) {}
 
+  Get(apiName: string, method: string): Observable<any> {
+    return this.http.get<any>(this.baseUrl + apiName + '/' + method);
+  }
   GetList(apiName: string, method: string): Observable<any> {
     return this.http.get<any>(this.baseUrl + apiName + '/' + method);
   }

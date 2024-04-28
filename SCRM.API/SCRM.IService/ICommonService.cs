@@ -10,5 +10,7 @@ namespace SCRM.IService
     public interface ICommonService
     {
         Response CheckDb();
+
+        Response ProfileDetails(int userid);
      }
 }

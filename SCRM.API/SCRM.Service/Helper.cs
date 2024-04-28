@@ -52,16 +52,16 @@ namespace SCRM.Service
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var claims = new[]
             {
-                new Claim(ClaimTypes.NameIdentifier,user.Email),
-                new Claim(ClaimTypes.Role,user.UserId.ToString())
+                new Claim("UserId",user.UserId.ToString()),
+                new Claim("Name",value: user.FullName),
+                new Claim("Email",value: user.Email),
+                new Claim("Role",user.RoleId.ToString())
             };
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
                 _config["Jwt:Audience"],
                 claims,
-                expires: DateTime.Now.AddMinutes(15),
+                expires: DateTime.Now.AddMinutes(20),
                 signingCredentials: credentials);
-
-
             return new JwtSecurityTokenHandler().WriteToken(token);
 
         }

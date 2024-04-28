@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from '../../pages/miscellaneous/not-found/not-found.component';
 import { ScrmAdminComponent } from './scrm-admin.component';
 import { ProjectAdminDashboardComponent } from './project-admin-dashboard/project-admin-dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [{
   path: '',
@@ -12,6 +13,12 @@ const routes: Routes = [{
       path: 'dashboard',
       component: ProjectAdminDashboardComponent,
     },
+
+    {
+      path: 'profile',
+      component: ProfileComponent,
+    },
+
     // {
     //   path: 'iot-dashboard',
     //   component: DashboardComponent,

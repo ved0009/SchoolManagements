@@ -13,6 +13,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/scrm/admin/dashboard',
   },
   {
+    title: 'Profile',
+    icon: 'home-outline',
+    link: '/scrm/admin/profile',
+  },
+  {
     title: 'FEATURES',
     group: true,
   },

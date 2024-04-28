@@ -8,6 +8,7 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
+import { AuthGardGuard } from './Services/AuthGarh/auth-gard.guard';
 
 export const routes: Routes = [
   {
@@ -17,6 +18,7 @@ export const routes: Routes = [
   },
   {
     path: 'scrm',
+    canActivate:[AuthGardGuard],
     loadChildren: () => import('./scrm/scrm.module')
       .then(m => m.ScrmModule),
   },
