@@ -7,6 +7,7 @@ import {
 } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { TokenServiceService } from "../TokenService/token-service.service";
+import { NbSpinnerService } from "@nebular/theme";
 @Injectable()
 export class AuthInterceptorInterceptor implements HttpInterceptor {
   constructor(private _token: TokenServiceService) {}
@@ -15,8 +16,7 @@ export class AuthInterceptorInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    debugger;
-    const token = this._token.GetJwtToken();
+     const token = this._token.GetJwtToken();
     if (token) {
       const authReq = request.clone({
         headers: request.headers.set('Authorization', `Bearer ${token}`),

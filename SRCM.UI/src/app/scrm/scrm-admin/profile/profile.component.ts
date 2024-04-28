@@ -8,6 +8,7 @@ import {
 import { MasterClientService } from "../../../Services/MasterClient/master-client.service";
 import { ToasterService } from "../../../Services/Toaster/toaster.service";
 import { webToasterMessage, webToasterPosition } from "../../../Services/Toaster/ToastSettings";
+import { NbSpinnerService } from "@nebular/theme";
 
 @Component({
   selector: "ngx-profile",
@@ -21,7 +22,8 @@ export class ProfileComponent {
   constructor(
     private _fb: FormBuilder,
     private _api: MasterClientService,
-    private _tost: ToasterService
+    private _tost: ToasterService,
+    private _loader:NbSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -43,6 +45,7 @@ export class ProfileComponent {
   }
 
   loadProfileDetails() {
+    this._loader.registerLoader;
     this._api.Get("Common", "GetProfileDetails").subscribe({
       next:res=>{
         if (res.success) {
@@ -55,12 +58,15 @@ export class ProfileComponent {
             phone: this.profileDetails.phone,
             dob: this.profileDetails.dob,
             gender: this.profileDetails.gender,
-          })
+          });
+          this._loader.clear();
         } else {
+          this._loader.clear();
           this._tost.showToast(webToasterPosition.toasterTopLeftPosition,'warning',webToasterMessage.NoRecordFound);
         }
       },
       error:err=>{
+        this._loader.clear();
         this._tost.showToast(webToasterPosition.toasterTopLeftPosition,'warning',webToasterMessage.apiErrorHead);
       }
     });
