@@ -29,9 +29,9 @@ export class TokenServiceService {
   public makeLogin() {
     if (this.isLoggedIn()) {
       debugger
-      const roleId = this.getUser().gender;
+      const roleId = this.getUser().roleId;
       if (roleId == 1) {
-        this.router.navigateByUrl("scrm/Admin");
+        this.router.navigateByUrl("scrm/admin/dashboard");
       } else if (roleId == 13) {
         this.router.navigateByUrl("pages");
       }else if (roleId == 200) {

@@ -31,10 +31,14 @@ export class LoginComponent {
     this.loginform = this._fb.group({
       username: new FormControl("", [
         Validators.required,
-        Validators.email,
         Validators.min(6),
+        Validators.max(10)
       ]),
-      password: new FormControl("", Validators.required),
+      password: new FormControl("", [
+        Validators.required,
+        Validators.min(6),
+        Validators.max(10)
+      ]),
     });
   }
 
@@ -49,7 +53,7 @@ export class LoginComponent {
       next: (res) => {
         if (res.success == true) {
           var username =
-            res.responseData.first_name + " " + res.responseData.last_name;
+            res.responseData.fullName;
           this._toast.showToast(
             webToasterPosition,
             "success",

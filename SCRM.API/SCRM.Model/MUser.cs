@@ -21,14 +21,35 @@ namespace SCRM.Model
     }
     
     public class MUserLoginDetail
+
     {
+        public int UserId { get; set; }
         public string UserName { get; set; } = string.Empty;
-        public int UserId { get; set; } 
+        public string FullName { get; set; } = string.Empty;
         public string Email { get; set; }= string.Empty;
-        public int Gender { get; set; } 
+        public int RoleId { get; set; }
+        public string RoleName { get; set; } = "User";
 
     }
-
+    public class MUserProfileDetails
+    {
+        public int UserId { get; set; }
+        public string UserName { get; set; } = string.Empty;
+        public string FName { get; set; } = string.Empty;
+        public string LName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Phone { get; set; } = string.Empty;
+        public string Gender { get; set; } = string.Empty;
+        public DateTime Dob { get; set; }
+        public int RoleId { get; set; }
+        public int AddressId { get; set; }
+        public int DocumentsId { get; set; }
+        public int AvatarId { get; set; }
+        public int IsEmailVerified { get; set; }
+        public int IsActive { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public string RoleName { get; set; } = "User";
+    }
 
 
 }

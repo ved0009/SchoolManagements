@@ -32,7 +32,7 @@ namespace SCRM.Service
                 {
                     List<TestDb> mCountries = new List<TestDb>();
                     var param = new DynamicParameters();
-                    mCountries = _dapper.GetAll<TestDb>("sp_get_all_users", param, commandType: CommandType.StoredProcedure);
+                    mCountries = _dapper.GetAll<TestDb>("sp_get_userlists", param, commandType: CommandType.StoredProcedure);
                     if (mCountries.Count > 0)
                     {
 
@@ -57,9 +57,50 @@ namespace SCRM.Service
                     response.totalRecords = -1;
                     response.message = ex.Message;
                     response.success = false;
-                    response.responseData = ex;
+                    response.responseData = ex.Message;
                     
 
+                }
+
+            }
+            return response;
+        }
+
+        public Response ProfileDetails(int userid)
+        {
+            using (response = new Response())
+            {
+                try
+                {
+                   MUserProfileDetails profile = new MUserProfileDetails();
+                    var param = new DynamicParameters();
+                    param.Add("puserid", userid, DbType.Int32);
+                    profile = _dapper.Get<MUserProfileDetails>("sp_get_userdetails", param, commandType: CommandType.StoredProcedure);
+                    if (profile != null)
+                    {
+
+                        response.totalRecords =1;
+                        response.message = "Success";
+                        response.success = true;
+                        response.responseData = profile;
+
+                    }
+                    else
+                    {
+                        response.totalRecords = 0;
+                        response.message = "No record found";
+                        response.success = false;
+                        response.responseData = null;
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    response.totalRecords = -1;
+                    response.message = ex.Message;
+                    response.success = false;
+                    response.responseData = ex.Message;
                 }
 
             }

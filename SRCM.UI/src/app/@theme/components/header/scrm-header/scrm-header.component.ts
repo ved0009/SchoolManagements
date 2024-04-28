@@ -5,6 +5,7 @@ import { UserData } from '../../../../@core/data/users';
 import { LayoutService } from '../../../../@core/utils';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { TokenServiceService } from '../../../../Services/TokenService/token-service.service';
 
 @Component({
   selector: 'ngx-scrm-header',
@@ -45,6 +46,7 @@ export class ScrmHeaderComponent {
               private themeService: NbThemeService,
               private userService: UserData,
               private layoutService: LayoutService,
+              private token:TokenServiceService,
               private breakpointService: NbMediaBreakpointsService) {
   }
 
@@ -71,6 +73,18 @@ export class ScrmHeaderComponent {
         takeUntil(this.destroy$),
       )
       .subscribe(themeName => this.currentTheme = themeName);
+
+      this.menuService.onItemClick().subscribe({
+        next:res=>{
+          if (res.item.title ==='Log out') {
+            this.token.signout();
+          }
+        },
+        error:err=>{
+          console.log('err',err);
+
+        }
+      })
   }
 
   ngOnDestroy() {
@@ -88,6 +102,7 @@ export class ScrmHeaderComponent {
 
     return false;
   }
+
 
   navigateHome() {
     this.menuService.navigateHome();

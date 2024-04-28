@@ -6,6 +6,7 @@ export const webToasterMessage = {
   logoutSuccess: 'You Have successfully log out',
   Unauthorized: 'Please check your Role,Access is denied',
   wronglogin: 'Please check your Email or Password ',
+  NoRecordFound:'No records found !'
 }
 export const webToasterPosition = {
   toasterTopRightPosition:'top-right',
