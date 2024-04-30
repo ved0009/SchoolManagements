@@ -14,16 +14,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Add school',
-        link: '/pages/extra-components/calendar',
+        link: '/scrm/admin/dashboard',
       },
       {
         title: 'Add new account',
-        link: '/pages/extra-components/spinner',
+        link: '/scrm/admin/dashboard',
       },
 
       {
         title: 'Membership',
-        link: '/pages/extra-components/spinner',
+        link: '/scrm/admin/dashboard',
       },
 
 
