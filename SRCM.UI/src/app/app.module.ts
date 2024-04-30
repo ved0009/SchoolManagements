@@ -22,9 +22,10 @@ import {
 } from "@nebular/theme";
 import { AuthInterceptorInterceptor } from "./Services/AuthInterceptor/auth-interceptor.interceptor";
 import { LoaderInterceptorInterceptor } from "./Services/AuthInterceptor/loader-interceptor.interceptor";
+import { LoadingComponent } from './Services/Loading/loading.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoadingComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
