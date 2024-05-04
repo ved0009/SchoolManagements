@@ -14,7 +14,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Add school',
-        link: '/scrm/admin/dashboard',
+        link: '/scrm/admin/school',
       },
       {
         title: 'Add new account',
