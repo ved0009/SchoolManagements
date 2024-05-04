@@ -40,6 +40,10 @@ export class LoaderInterceptorInterceptor implements HttpInterceptor {
               this._dl.showToast(webToasterPosition.toasterTopLeftPosition,'danger','Please login again');
               this._router.navigateByUrl('/auth');
             }
+            if (error.statusText === 'Unknown Error') {
+              this._dl.showToast(webToasterPosition.toasterTopLeftPosition,'danger','Server down please try after some times !');
+              this._router.navigateByUrl('/auth');
+            }
           }
         }
       ),
