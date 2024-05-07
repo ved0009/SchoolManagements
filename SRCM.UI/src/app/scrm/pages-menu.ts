@@ -9,21 +9,49 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
 
   {
-    title: "School management",
-    icon: "message-circle-outline",
+    title: "Students",
+    icon: "award-outline",
     children: [
       {
-        title: "Add school",
-        link: "/pages/extra-components/calendar",
+        title: "All Students",
+        link: "/scrm/School/Students/allstudent",
+        icon: "list-outline",
       },
       {
-        title: "Add new account",
-        link: "/pages/extra-components/spinner",
+        title: "Add new",
+        link: "/scrm/School/Students/newstudent",
+        icon: "person-add-outline",
       },
 
       {
-        title: "Membership",
-        link: "/pages/extra-components/spinner",
+        title: "Manage Families",
+        link: "/scrm/School/Students/managefamilies",
+        icon: "people-outline",
+      },
+      {
+        title: "Active / Inactive",
+        link: "/scrm/School/Students/activeinactive",
+        icon: "person-done-outline",
+      },
+      {
+        title: "Admission Letter",
+        link: "/scrm/School/Students/admissionletter",
+        icon: "file-text-outline",
+      },
+      {
+        title: "Student ID Card",
+        link: "/scrm/School/Students/studentcard",
+        icon: "person-outline",
+      },
+      {
+        title: "Print Basic List",
+        link: "/scrm/School/Students/printbasiclist",
+        icon: "download-outline",
+      },
+      {
+        title: "Promote Students",
+        link: "/scrm/School/Students/promotestudent",
+        icon: "trending-up-outline",
       },
     ],
   },
@@ -44,3 +72,4 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
 ];
+
