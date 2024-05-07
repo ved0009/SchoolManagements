@@ -1,8 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { NotFoundComponent } from "../../pages/miscellaneous/not-found/not-found.component";
-import { ScrmSchoolComponent } from "./scrm-school.component";
-import { DashboardComponent } from "./dashboard/dashboard.component";
 
 const routes: Routes = [
   {
@@ -17,6 +15,11 @@ const routes: Routes = [
         path: "Students",
         loadChildren: () =>
           import("./Students/students.module").then((m) => m.StudentsModule),
+      },
+      {
+        path: "Class",
+        loadChildren: () =>
+          import("./classes/classes.module").then((m) => m.ClassesModule),
       },
     ],
   },
