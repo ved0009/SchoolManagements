@@ -7,30 +7,46 @@ import { FormBuilder,   FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./new-students.component.scss']
 })
 export class NewStudentsComponent {
-  StudentForm: FormGroup;
+  StudentBasicForm: FormGroup;
+  StudentOtherForm: FormGroup;
+  isExpand:Boolean=true;
 
-  constructor(private formBuilder: FormBuilder) {  }
+  validationMessages = {
+    'StudentName': {
+       'required': 'StudentName is required.',
+    },
+    'RegistrationNo': {
+       'required': 'RegistrationNo is required.',
+
+    },
+    'Class': {
+       'required': 'Class is required.'
+    },
+    'DateOfAdmission': {
+       'required': 'DateOfAdmission is required.',
+
+    }  ,
+    'DiscountInFee': {
+       'required': 'DateOfAdmission is required.',
+
+    } ,
+    'MobileNoWhatsapp': {
+       'pattern': 'DateOfAdmission is required.',
+
+    }
+ };
+ formErrors = {};
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-
-    this.loadForm();
-
-  }
-
-  onSubmit(): void {
-    console.log(this.StudentForm);
-  }
-  //      StudentName : new FormControl([''],[Validators.required]),
-
-  loadForm():void{
-      console.log('formdata');
-      this.formBuilder.group({
-      StudentName :['',Validators.required],
-       RegistrationNo: ['', Validators.required],
-       Class: ['', Validators.required],
-       DateOfAdmission: ['', Validators.required],
-       DiscountInFee: ['', Validators.required],
-       MobileNoWhatsapp: '',
+    debugger
+    this.StudentBasicForm = this.formBuilder.group({
+      StudentName: ['', [Validators.required]],
+       RegistrationNo: ['', [Validators.required]],
+       Class: ['', [Validators.required]],
+       DateOfAdmission: ['', [Validators.required]],
+       DiscountInFee: ['', [Validators.required]],
+       MobileNoWhatsapp: ['',Validators.pattern('0-9')],
 
        DOB: [''],
        StudentBirthForm: [''],
@@ -64,11 +80,26 @@ export class NewStudentsComponent {
        MMobileNo: [''],
        MProfession: [''],
        MIncome: ['']
-
-     });
-
-
-     console.log('formdata',this.StudentForm.value);
+      })
+  //   this.StudentBasicForm.valueChanges.subscribe(
+  //     value => {
+  //        this.logValidationErrors()
+  //     }
+  //  );
 
   }
+
+  onSubmit(): void {
+     console.log(this.StudentBasicForm.value);
+
+  }
+
+
+//   logValidationErrors() {
+//     debugger
+//     this.formErrors = this._validation.getValidationErrors(this.StudentBasicForm, this.validationMessages);
+// }
+toggleExpand(){
+  this.isExpand=!this.isExpand;
+}
 }

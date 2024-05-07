@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SCRM.Model
 {
-    public class MSchools
+    public class MStudent
     {
 
     }
@@ -18,5 +18,13 @@ namespace SCRM.Model
         public string Name { get; set; }
         public string Image { get; set; }
         public string StudentId { get; set; }
+    }
+
+    public class InsertUpdateStudentDetails
+    {
+        public int Id { get; set; } = 0;
+        public int dml { get; set; } = 0;
+
+
     }
 }
