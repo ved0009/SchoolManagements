@@ -7,7 +7,7 @@ using System.Security.Claims;
 namespace SCRM.API.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
+   // [Authorize]
     [ApiController]
     public class CommonController : ControllerBase
     {

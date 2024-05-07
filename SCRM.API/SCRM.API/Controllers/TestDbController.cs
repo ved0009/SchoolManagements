@@ -19,7 +19,7 @@ namespace SCRM.API.Controllers
         }
 
         [HttpGet("TestDbConnection")]
-        [Authorize]
+       
         public IActionResult TestDbConnection()
         {
             var result = _commonService.CheckDb();

@@ -4,16 +4,15 @@ using Dapper;
 using SCRM.IService;
 using Microsoft.Extensions.Configuration;
 using MySqlConnector;
-using System.Data.SqlClient;
 
 namespace SCRM.Service
 {
-    public class DapperConnections: IDapperConnections
+    public class MYSQLDapperConnections : IDapperConnections
     {
         private readonly IConfiguration _config;
         private string Connectionstring = "DefaultConnection";
 
-        public DapperConnections(IConfiguration config)
+        public MYSQLDapperConnections(IConfiguration config)
         {
             _config = config;
         }
@@ -29,13 +28,13 @@ namespace SCRM.Service
 
         public T Get<T>(string sp, DynamicParameters parms, CommandType commandType = CommandType.Text)
         { 
-            using IDbConnection db = new SqlConnection(_config.GetConnectionString(Connectionstring));
+            using IDbConnection db = new MySqlConnection(_config.GetConnectionString(Connectionstring));
             return db.Query<T>(sp, parms, commandType: commandType).FirstOrDefault();
         }
 
         public List<T> GetAll<T>(string sp, DynamicParameters parms, CommandType commandType = CommandType.StoredProcedure)
         {
-            using IDbConnection db = new SqlConnection(_config.GetConnectionString(Connectionstring));
+            using IDbConnection db = new MySqlConnection(_config.GetConnectionString(Connectionstring));
             return db.Query<T>(sp, parms, commandType: commandType).ToList();
         }
 
@@ -47,7 +46,7 @@ namespace SCRM.Service
         public T Insert<T>(string sp, DynamicParameters parms, CommandType commandType = CommandType.StoredProcedure)
         {
             T result;
-            using IDbConnection db = new SqlConnection(_config.GetConnectionString(Connectionstring));
+            using IDbConnection db = new MySqlConnection(_config.GetConnectionString(Connectionstring));
             try
             {
                 if (db.State == ConnectionState.Closed)
@@ -81,7 +80,7 @@ namespace SCRM.Service
         public T Update<T>(string sp, DynamicParameters parms, CommandType commandType = CommandType.StoredProcedure)
         {
             T result;
-            using IDbConnection db = new SqlConnection(_config.GetConnectionString(Connectionstring));
+            using IDbConnection db = new MySqlConnection(_config.GetConnectionString(Connectionstring));
             try
             {
                 if (db.State == ConnectionState.Closed)

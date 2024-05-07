@@ -32,7 +32,8 @@ namespace SCRM.Service
                 {
                     List<TestDb> mCountries = new List<TestDb>();
                     var param = new DynamicParameters();
-                    mCountries = _dapper.GetAll<TestDb>("sp_get_userlists", param, commandType: CommandType.StoredProcedure);
+                    param.Add("@mynum", 1, DbType.Int32);
+                    mCountries = _dapper.GetAll<TestDb>("sp_test", param, commandType: CommandType.StoredProcedure);
                     if (mCountries.Count > 0)
                     {
 
