@@ -22,9 +22,16 @@ namespace SCRM.Model
 
     public class InsertUpdateStudentDetails
     {
-        public int Id { get; set; } = 0;
-        public int dml { get; set; } = 0;
+        public int StudentId { get; set; } = 0;
+        public string Name { get; set; }  
+        public string Class { get; set; }  
+        public string Section { get; set; }  
+        public string Image { get; set; }  
+        public DateTime DateOfAdmission { get; set; }  
+        public decimal FeeDiscount { get; set; }  
+        public string Mobile { get; set; }  
 
+ 
 
     }
 }

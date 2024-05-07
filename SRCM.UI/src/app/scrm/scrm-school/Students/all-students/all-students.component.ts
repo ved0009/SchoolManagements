@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { ToasterService } from "../../../../Services/Toaster/toaster.service";
 import { webToasterPosition } from "../../../../Services/Toaster/ToastSettings";
 import { MasterClientService } from "../../../../Services/MasterClient/master-client.service";
+import { DialongService } from "../../../../Services/Dialong/dialong.service";
 
 @Component({
   selector: "ngx-all-students",
@@ -10,15 +11,17 @@ import { MasterClientService } from "../../../../Services/MasterClient/master-cl
   styleUrls: ["./all-students.component.scss"],
 })
 export class AllStudentsComponent {
-  constructor(private router: Router,
-    private toaster:ToasterService,
-    private _api:MasterClientService
+  constructor(
+    private router: Router,
+    private toaster: ToasterService,
+    private _api: MasterClientService,
+    private _dialong: DialongService
   ) {}
   @Input() profilePic: string;
   @Input() name: string;
   @Input() class: string;
 
- studentsLists:any;
+  studentsLists: any;
 
   StudentsDetail = [
     {
@@ -45,25 +48,31 @@ export class AllStudentsComponent {
 
   showSearch: boolean = false;
 
-
   ngOnInit(): void {
-    this._api.GetList('Student','GetAllStudentLists/1').subscribe({
-      next:res=>{
+    this.getStudentsLists();
+  }
+
+  getStudentsLists() {
+    this._api.GetList("Student", "GetAllStudentLists/1").subscribe({
+      next: (res) => {
         this.studentsLists = res.responseData;
 
-        this.studentsLists.forEach(item => {
-        item.image =  item.image === null ? "../assets/images/lee.png":item.image;
-        item.studentId =  'FPSSS'+item.id ;
+        this.studentsLists.forEach((item) => {
+          item.image =
+            item.image === null ? "../assets/images/lee.png" : item.image;
+          item.studentId = "FPSSS" + item.id;
         });
 
-
-        console.log('student lists',this.studentsLists);
+        console.log("student lists", this.studentsLists);
       },
-      error:err=>{
-        this.toaster.showToast(webToasterPosition.toasterTopLeftPosition,'danger',err.message);
-      }
-    })
-
+      error: (err) => {
+        this.toaster.showToast(
+          webToasterPosition.toasterTopLeftPosition,
+          "danger",
+          err.message
+        );
+      },
+    });
   }
 
   toggleSearch() {
@@ -71,12 +80,15 @@ export class AllStudentsComponent {
   }
   image: string = "../assets/images/jack.png";
   refresh() {
-    alert("refresh works");
+    this.getStudentsLists();
   }
 
   search() {
-    alert("Search button Click !!");
-    this.toaster.showToast(webToasterPosition.toasterTopLeftPosition,'success','success');
+    this.toaster.showToast(
+      webToasterPosition.toasterTopLeftPosition,
+      "success",
+      "success"
+    );
   }
   add() {
     debugger;
@@ -87,6 +99,6 @@ export class AllStudentsComponent {
   }
 
   delete() {
-    alert("Delete button Click !!");
+    //  this._dialong
   }
 }

@@ -62,5 +62,54 @@ namespace SCRM.Service
             }
             return response;
         }
+
+        public Response InsertUpdateStudentDetails(InsertUpdateStudentDetails details)
+        {
+            using (response = new Response())
+            {
+                try
+                {
+                   
+                    var param = new DynamicParameters();
+                    param.Add("@studentId", details.StudentId, DbType.Int32);
+                    param.Add("@name", details.Name, DbType.String);
+                    param.Add("@class", details.Class, DbType.String);
+                    param.Add("@section", details.Section, DbType.String);
+                    param.Add("@image", details.Image, DbType.String);
+                    param.Add("@dateOfAdmission", details.DateOfAdmission, DbType.DateTime);
+                    param.Add("@mobile", details.Mobile, DbType.String);
+                    param.Add("@feeDiscount", details.FeeDiscount, DbType.Decimal);
+                   
+                 var result  = _dapper.Insert<string>("sp_std_InsertUpdateStudentDetails", param, commandType: CommandType.StoredProcedure);
+                    if (result == "success")
+                    {
+
+                        response.totalRecords = 1;
+                        response.message = "Success";
+                        response.success = true;
+                        response.responseData ="Registration successfull";
+
+                    }
+                    else
+                    {
+                        response.totalRecords = 0;
+                        response.message = "No record found";
+                        response.success = false;
+                        response.responseData = null;
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    response.totalRecords = -1;
+                    response.message = ex.Message;
+                    response.success = false;
+                    response.responseData = ex.Message;
+                }
+
+            }
+            return response;
+        }
     }
 }
