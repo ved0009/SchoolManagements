@@ -2,6 +2,7 @@ import { Component, Input } from "@angular/core";
 import { Router } from "@angular/router";
 import { ToasterService } from "../../../../Services/Toaster/toaster.service";
 import { webToasterPosition } from "../../../../Services/Toaster/ToastSettings";
+import { MasterClientService } from "../../../../Services/MasterClient/master-client.service";
 
 @Component({
   selector: "ngx-all-students",
@@ -10,11 +11,14 @@ import { webToasterPosition } from "../../../../Services/Toaster/ToastSettings";
 })
 export class AllStudentsComponent {
   constructor(private router: Router,
-    private toaster:ToasterService
+    private toaster:ToasterService,
+    private _api:MasterClientService
   ) {}
   @Input() profilePic: string;
   @Input() name: string;
   @Input() class: string;
+
+ studentsLists:any;
 
   StudentsDetail = [
     {
@@ -40,6 +44,27 @@ export class AllStudentsComponent {
   ];
 
   showSearch: boolean = false;
+
+
+  ngOnInit(): void {
+    this._api.GetList('Student','GetAllStudentLists/1').subscribe({
+      next:res=>{
+        this.studentsLists = res.responseData;
+
+        this.studentsLists.forEach(item => {
+        item.image =  item.image === null ? "../assets/images/lee.png":item.image;
+        item.studentId =  'FPSSS'+item.id ;
+        });
+
+
+        console.log('student lists',this.studentsLists);
+      },
+      error:err=>{
+        this.toaster.showToast(webToasterPosition.toasterTopLeftPosition,'danger',err.message);
+      }
+    })
+
+  }
 
   toggleSearch() {
     this.showSearch = !this.showSearch;

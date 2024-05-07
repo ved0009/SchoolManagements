@@ -8,8 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddTransient<IDapperConnections, DapperConnections>();
-builder.Services.AddTransient<ICommonService, CommonService>();
 builder.Services.AddTransient<IAuth, SAuth>();
+builder.Services.AddTransient<ICommonService, CommonService>();
+builder.Services.AddTransient<IStudent, SStudent>();
 
 builder.Services.AddControllers();
 

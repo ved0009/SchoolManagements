@@ -104,5 +104,46 @@ namespace SCRM.Service
             }
             return response;
         }
+
+        public Response GetAllStudentLists(int Id)
+        {
+            using (response = new Response())
+            {
+                try
+                {
+                    StudentList studentLists = new StudentList();
+                    var param = new DynamicParameters();
+                    param.Add("@createdBy", Id, DbType.Int32);
+                    studentLists = _dapper.Get<StudentList>("sp_std_GetAllStudents", param, commandType: CommandType.StoredProcedure);
+                    if (studentLists != null)
+                    {
+
+                        response.totalRecords = 1;
+                        response.message = "Success";
+                        response.success = true;
+                        response.responseData = studentLists;
+
+                    }
+                    else
+                    {
+                        response.totalRecords = 0;
+                        response.message = "No record found";
+                        response.success = false;
+                        response.responseData = null;
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    response.totalRecords = -1;
+                    response.message = ex.Message;
+                    response.success = false;
+                    response.responseData = ex.Message;
+                }
+
+            }
+            return response;
+        }
     }
 }

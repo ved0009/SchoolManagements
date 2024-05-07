@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SCRM.IService
 {
-    public interface ISchool
+    public interface IStudent
     {
         Response GetAllStudentLists(int Id);
     }
