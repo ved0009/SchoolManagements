@@ -24,6 +24,13 @@ const routes: Routes = [
             (m) => m.ScrmAdminModule
           ),
       },
+      {
+        path: "School",
+        loadChildren: () =>
+          import("./scrm-school/scrm-school.module").then(
+            (m) => m.ScrmSchoolModule
+          ),
+      },
 
 
       // {

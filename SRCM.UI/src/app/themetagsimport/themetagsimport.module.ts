@@ -39,6 +39,7 @@ import { LayoutRoutingModule } from '../pages/layout/layout-routing.module';
     NbStepperModule,
     NbListModule,
     LayoutRoutingModule,
+    NbAccordionModule
    ]
 })
 export class ThemetagsimportModule { }

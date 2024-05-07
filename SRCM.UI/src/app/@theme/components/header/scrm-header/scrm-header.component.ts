@@ -17,6 +17,9 @@ export class ScrmHeaderComponent {
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
   user: any;
+  adminType:any;
+
+
 
   themes = [
     {
@@ -44,20 +47,24 @@ export class ScrmHeaderComponent {
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private themeService: NbThemeService,
-              private userService: UserData,
+              private userService: UserData ,
               private layoutService: LayoutService,
               private token:TokenServiceService,
+
               private breakpointService: NbMediaBreakpointsService) {
   }
 
   ngOnInit() {
-    this.toggleSidebar();
 
+    this.toggleSidebar();
+const userDetails = this.token.getUser();
     this.currentTheme = this.themeService.currentTheme;
 
     this.userService.getUsers()
       .pipe(takeUntil(this.destroy$))
       .subscribe((users: any) => this.user = users.nick);
+      this.user.name = userDetails.fullName;
+      this.adminType = userDetails.roleId == 1 ?'SCRM':userDetails.roleName;
 
     const { xl } = this.breakpointService.getBreakpointsMap();
     this.themeService.onMediaQueryChange()

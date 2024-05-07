@@ -4,6 +4,7 @@ import { NotFoundComponent } from '../../pages/miscellaneous/not-found/not-found
 import { ScrmAdminComponent } from './scrm-admin.component';
 import { ProjectAdminDashboardComponent } from './project-admin-dashboard/project-admin-dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SchoolListsComponent } from './School/school-lists/school-lists.component';
 
 const routes: Routes = [{
   path: '',
@@ -18,6 +19,7 @@ const routes: Routes = [{
       path: 'profile',
       component: ProfileComponent,
     },
+
 
     // {
     //   path: 'iot-dashboard',
