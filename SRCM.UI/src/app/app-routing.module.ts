@@ -18,7 +18,7 @@ export const routes: Routes = [
   },
   {
     path: 'scrm',
-    canActivate:[AuthGardGuard],
+    // canActivate:[AuthGardGuard],
     loadChildren: () => import('./scrm/scrm.module')
       .then(m => m.ScrmModule),
   },
