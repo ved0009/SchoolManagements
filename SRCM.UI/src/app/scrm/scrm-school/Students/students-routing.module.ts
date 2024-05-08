@@ -10,6 +10,7 @@ import { AdimissionLetterComponent } from "./adimission-letter/adimission-letter
 import { StudentIDCardComponent } from "./student-idcard/student-idcard.component";
 import { PrintBasicListComponent } from "./print-basic-list/print-basic-list.component";
 import { PromoteStudentsComponent } from "./promote-students/promote-students.component";
+import { ViewStudentComponent } from "./view-student/view-student.component";
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: "newstudent",
         component: NewStudentsComponent,
+      },
+      {
+        path: "viewstudent/:id",
+        component: ViewStudentComponent,
       },
 
       {

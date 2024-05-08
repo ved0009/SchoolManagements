@@ -14,6 +14,7 @@ import { PromoteStudentsComponent } from "./promote-students/promote-students.co
 import { ThemetagsimportModule } from "../../../themetagsimport/themetagsimport.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { NbAccordionModule } from "@nebular/theme";
+import { ViewStudentComponent } from './view-student/view-student.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NbAccordionModule } from "@nebular/theme";
     AdimissionLetterComponent,
     StudentIDCardComponent,
     PrintBasicListComponent,
-    PromoteStudentsComponent
+    PromoteStudentsComponent,
+    ViewStudentComponent
   ],
   imports: [CommonModule, StudentsRoutingModule,ThemetagsimportModule,ReactiveFormsModule,NbAccordionModule],
 })

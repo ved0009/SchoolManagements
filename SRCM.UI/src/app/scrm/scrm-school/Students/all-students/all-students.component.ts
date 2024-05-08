@@ -83,12 +83,9 @@ export class AllStudentsComponent {
     this.getStudentsLists();
   }
 
-  search() {
-    this.toaster.showToast(
-      webToasterPosition.toasterTopLeftPosition,
-      "success",
-      "success"
-    );
+  search(id:number) {
+    this.router.navigate(['/scrm/School/Students/viewstudent', id]);
+
   }
   add() {
     debugger;
