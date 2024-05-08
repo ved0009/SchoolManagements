@@ -71,5 +71,43 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+  {
+    title: "Subject",
+    icon: "award-outline",
+    children: [
+      {
+        title: "Classess with Subject",
+        link: "/scrm/School/Subject/classesswithsubject",
+        icon: "list-outline",
+      },
+      {
+        title: "Assign Subject",
+        link: "/scrm/School/Subject/assignsubject",
+        icon: "person-add-outline",
+      },
+    ],
+  },
+  {
+    title: "Employees",
+    icon: "award-outline",
+    children: [
+      {
+        title: "All Employees",
+        link: "/scrm/School/Employees/allemployees",
+        icon: "list-outline",
+      },
+      {
+        title: "Staff ID Card",
+        link: "/scrm/School/Employees/staffcard",
+        icon: "person-add-outline",
+      },
+      {
+        title: "Job Letter",
+        link: "/scrm/School/Employees/jobletter",
+        icon: "person-add-outline",
+      },
+
+    ],
+  },
 ];
 
