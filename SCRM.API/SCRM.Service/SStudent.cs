@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -79,11 +81,48 @@ namespace SCRM.Service
                     param.Add("@dateOfAdmission", details.DateOfAdmission, DbType.DateTime);
                     param.Add("@mobile", details.Mobile, DbType.String);
                     param.Add("@feeDiscount", details.FeeDiscount, DbType.Decimal);
-                   
-                 var result  = _dapper.Insert<string>("sp_std_InsertUpdateStudentDetails", param, commandType: CommandType.StoredProcedure);
-                    if (result == "success")
-                    {
 
+                    param.Add("@StudentID", details.StudentId, DbType.Int32);
+                    param.Add("@DOB", details.DateOfBirth, DbType.DateTime);
+                    param.Add("@StudentDocumentID", details.StudentBirthNicId, DbType.String);
+                    param.Add("@isOrphan", details.Orphan, DbType.Int32);
+                    param.Add("@Gender", details.Gender, DbType.Int32);
+                    param.Add("@Cast", details.Religion, DbType.Int32);
+                    param.Add("@OSC", details.OSC, DbType.Int32);
+                    param.Add("@IdentificationMark", details.IdentityMarks, DbType.String);
+                    param.Add("@PreviousSchool", details.PreviousSchool, DbType.String);
+                    param.Add("@Religion", details.Religion, DbType.Int32);
+                    param.Add("@BloodGroup", details.BloodGroup, DbType.Int32);
+                    param.Add("@SRNBoardRollNo", details.BoardRollNumber, DbType.String);
+                    param.Add("@Family", details.FamilyAddress, DbType.String);
+                    param.Add("@Disease", details.DiseaseIfAny, DbType.String);
+                    param.Add("@AdditionalNote", details.AnyAdditionalNotes, DbType.String);
+                    param.Add("@TotalSibling", details.TotalSiblings, DbType.Int32);
+                    param.Add("@Address", details.Address, DbType.String);
+                    //details.StudentId = _dapper.Insert<int>("sp_std_InsertUpdateStudentOtherInfo", param, commandType: CommandType.StoredProcedure);
+
+                    var parentcount = details.insertUpdateStudentDetailsParentsInfos.Count;
+
+                   details.StudentId  = _dapper.Insert<int>("sp_std_InsertUpdateStudentDetails", param, commandType: CommandType.StoredProcedure);
+                    if (details.StudentId > 0)
+                    {
+                        var dbparam = new DynamicParameters();
+                        details.insertUpdateStudentDetailsParentsInfos.ForEach((x) =>
+                        {
+                            dbparam.Add("@StudentID", details.StudentId, DbType.Int32);
+                            dbparam.Add("@ParentType", x.ParrentType, DbType.String);
+                            dbparam.Add("@Name", x.Name, DbType.String);
+                            dbparam.Add("@NationalID", x.NationalId, DbType.String);
+                            dbparam.Add("@Occupation",x.OccupationType, DbType.String);
+                            dbparam.Add("@Education", x.EducationType, DbType.String);
+                            dbparam.Add("@Mobile", x.Mobile, DbType.String);
+                            dbparam.Add("@Profession", x.Profession, DbType.String);
+                            dbparam.Add("@Income", x.Income, DbType.String);
+                            //sp_std_InsertUpdateStudentParentInfo
+                            var rresult = _dapper.Insert<string>("sp_std_InsertUpdateStudentParentInfo", dbparam, commandType: CommandType.StoredProcedure);
+
+                        });
+                      
                         response.totalRecords = 1;
                         response.message = "Success";
                         response.success = true;

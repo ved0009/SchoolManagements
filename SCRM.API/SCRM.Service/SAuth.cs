@@ -29,8 +29,8 @@ namespace SCRM.Service
                 try
                 {
                     var dbparams = new DynamicParameters();
-                    dbparams.Add("pusername", login.UserName, DbType.String);
-                    dbparams.Add("ppassword", login.Password, DbType.String);
+                    dbparams.Add("@pusername", login.UserName, DbType.String);
+                    dbparams.Add("@ppassword", login.Password, DbType.String);
                     var result = new MUserLoginDetail();
                     result = _dapper.Get<MUserLoginDetail>("sp_user_login", dbparams, commandType: CommandType.StoredProcedure);
                     if (result != null)
