@@ -5,8 +5,10 @@ import { EmployeesComponent } from './employees.component';
 import { AllEmployeesComponent } from './all-employees/all-employees.component';
 import { StafIdCardComponent } from './staf-id-card/staf-id-card.component';
 import { JobLetterComponent } from './job-letter/job-letter.component';
-
-
+  import { AddNewEmployeeComponent } from './add-new-employee/add-new-employee.component';
+  
+ 
+ 
 const routes: Routes = [
   {
     path: "",
@@ -17,6 +19,12 @@ const routes: Routes = [
         component: AllEmployeesComponent,
       },
       {
+          path: "newemployees",
+        component: AddNewEmployeeComponent,
+      },
+      { 
+ 
+   
         path: "staffcard",
         component: StafIdCardComponent,
       },

@@ -1,1 +1,60 @@
-<p>all-classes works!</p>
+<nb-card >
+  <nb-card-body class="py-0">
+    <div class="row">
+      <div class="col-sm-9">
+        <h6 class="text-left">All Classes</h6>
+      </div>
+    </div>
+    <!-- Search fields -->
+  </nb-card-body>
+</nb-card>
+
+<!-- card.component.html -->
+<div class="card-container">
+  <div class="card" *ngFor="let i of classLists">
+    <div class="row">
+      <div class="col-sm-8">
+        <h4 class="custom-text-color">{{ i.className }}</h4>
+      </div>
+      <div class="col-sm-2">
+        <i
+          class="fas fa-edit mx-2"
+          (click)="edit(i)"
+          style="font-size: 16px; color: rgb(46, 29, 205)"
+        ></i>
+      </div>
+      <div class="col-sm-2">
+
+        <i class="fas fa-trash" style="font-size: 16px"></i>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="stu">
+          <h2>{{ i.totalStudents }}</h2>
+          <h6 class="custom-text-color">Students</h6>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <i
+          class="fa fa-graduation-cap"
+          style="font-size: 48px; color: rgb(46, 29, 205)"
+        ></i>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 text-danger">Boys: {{ i.totalBoys }}</div>
+      <div class="col-4 text-success">Girls: {{ i.totalGirls }}</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="profile-section">
+      <div class="empty-state" (click)="add()">
+        <i class="fas fa-plus"> </i>
+      </div>
+      <div class="details">
+        <h6>Add New</h6>
+      </div>
+    </div>
+  </div>
+</div>
