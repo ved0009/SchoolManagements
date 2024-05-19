@@ -9,7 +9,6 @@ import { JobLetterComponent } from './job-letter/job-letter.component';
   import { ThemetagsimportModule } from '../../../themetagsimport/themetagsimport.module';
 import { AddNewEmployeeComponent } from './add-new-employee/add-new-employee.component';
 import { ReactiveFormsModule } from '@angular/forms';
- >>>>>>> MasterSCRM
 
 
 @NgModule({
@@ -27,12 +26,5 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
   ],
 
- 
-    JobLetterComponent
-  ],
-  imports: [
-    CommonModule,
-    EmployeesRoutingModule
-  ]
  })
 export class EmployeesModule { }
