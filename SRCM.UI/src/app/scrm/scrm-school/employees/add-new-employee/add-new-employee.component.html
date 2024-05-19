@@ -183,15 +183,22 @@
                       <label for="inputFirstName" class="label"
                         >Date of Birth</label
                       >
-                      <input
+                      <!-- <input
                         type="date"
                         nbInput
                         fullWidth
                         id="inputFirstName"
                         placeholder="mm/dd/yyyy"
                         formControlName="DOB"
-                      />
-                    </div>
+                      /> -->
+
+                           <input nbInput
+                           formControlName="DOB"
+
+                                 placeholder="Form Picker"
+                                 [nbDatepicker]="formpicker">
+                          <nb-datepicker #formpicker></nb-datepicker>
+                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="form-group">

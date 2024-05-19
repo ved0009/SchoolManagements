@@ -34,12 +34,12 @@
     display: flex;
     align-items: center;
     width: auto;
-     height: 40px !important;
+
     //  background-color: red;
 
     .sidebar-toggle {
-      @include nb-ltr(padding-right, 1.25rem);
-      @include nb-rtl(padding-left, 1.25rem);
+      @include nb-ltr(padding-right, 0.25rem);
+      @include nb-rtl(padding-left, 0.25rem);
       text-decoration: none;
       color: nb-theme(text-hint-color);
       nb-icon {

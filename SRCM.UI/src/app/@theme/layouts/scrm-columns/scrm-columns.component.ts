@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
   selector: 'ngx-scrm-columns',
   styleUrls: ['./scrm-columns.component.scss'],
   template: `
-    <nb-layout windowMode>
-      <nb-layout-header fixed>
-        <ngx-scrm-header></ngx-scrm-header>
+    <nb-layout windowMode >
+      <nb-layout-header fixed >
+        <ngx-scrm-header class="py-0"></ngx-scrm-header>
       </nb-layout-header>
 
       <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive>
@@ -18,7 +18,7 @@ import { Component } from '@angular/core';
       </nb-layout-column>
 
       <nb-layout-footer fixed style="padding: 0%;">
-       <ngx-scrm-footer></ngx-scrm-footer>
+       <ngx-scrm-footer class="py-0" ></ngx-scrm-footer >
       </nb-layout-footer>
     </nb-layout>
   `

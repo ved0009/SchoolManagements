@@ -20,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NbCalendarModule,
     NbSelectModule,
     NbContextMenuModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   exports:[
     CommonModule,
@@ -41,7 +42,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     NbStepperModule,
     NbListModule,
     LayoutRoutingModule,
-    NbAccordionModule
+    NbAccordionModule,
+
+
    ]
 })
 export class ThemetagsimportModule { }
