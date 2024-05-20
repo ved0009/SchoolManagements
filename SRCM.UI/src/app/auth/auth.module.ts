@@ -10,6 +10,7 @@ import { MiscellaneousModule } from '../pages/miscellaneous/miscellaneous.module
 import { NbButtonModule, NbCardModule, NbInputModule, NbLayoutModule, NbMenuModule } from '@nebular/theme';
 import { ThemeModule } from '../@theme/theme.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SchoolLandingPageComponent } from './school-landing-page/school-landing-page.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AuthComponent,
     LoginComponent,
     RegistrationComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    SchoolLandingPageComponent
   ],
   imports: [
     CommonModule,

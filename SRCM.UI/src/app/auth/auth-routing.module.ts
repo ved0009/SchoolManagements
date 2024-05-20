@@ -5,6 +5,7 @@ import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { SchoolLandingPageComponent } from './school-landing-page/school-landing-page.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,10 @@ const routes: Routes = [
     path: "",
     component: AuthComponent,
     children: [
+      {
+        path: "Landing",
+        component: SchoolLandingPageComponent,
+      },
       {
         path: "login",
         component: LoginComponent,
