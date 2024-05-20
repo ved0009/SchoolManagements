@@ -1,1 +1,31 @@
-<p>student-idcard works!</p>
+<nb-card>
+  <nb-card-header>Student Id card</nb-card-header>
+  <nb-card-body>
+    <div  class="row" >
+      <div class="col-md-3 mx-1 my-2" *ngFor="let item of studentsLists">
+        <div class="id-card">
+          <div class="header">
+            <img src="../../../../../assets/images/team.png" alt="School Logo" />
+          </div>
+          <div class="title">Mv Public School</div>
+          <div class="subtitle">Dream Dare Do</div>
+          <img [src]="item.image" alt="Student Photo" />
+          <div class="barcode">
+            <img
+              src="https://barcode.tec-it.com/barcode.ashx?data=F216-00TYU&code=Code128"
+              alt="Barcode"
+            />
+          </div>
+          <div class="info"><b>Registration No</b>: F216-00TYU</div>
+          <div class="info"> <b>Name</b>: {{item.name}}</div>
+          <div class="info"> <b>Class</b>: {{item.class}}</div>
+          <div class="qr-code">
+            <!-- <img src="https://via.placeholder.com/60" alt="QR Code" /> -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </nb-card-body>
+</nb-card>

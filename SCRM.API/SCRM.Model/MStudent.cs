@@ -20,6 +20,7 @@ namespace SCRM.Model
         public string Name { get; set; }
         public string Image { get; set; }
         public string StudentId { get; set; }
+        public string Class { get; set; }
     }
 
     public class InsertUpdateStudentDetails
