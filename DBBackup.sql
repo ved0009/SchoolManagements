@@ -2,6 +2,7 @@
 USE [esmadmin1_]
 GO
 /****** Object:  Table [dbo].[tb_admin_User]    Script Date: 19-05-2024 13:11:49 ******/
+--tyfitfiytfiyt
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

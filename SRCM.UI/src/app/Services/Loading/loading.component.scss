@@ -1,4 +1,4 @@
-body{
+body {
   height:100vh;
   width:100vw;
   display:flex;
@@ -44,7 +44,7 @@ body{
 
 .pencil__eraser {
   animation-name: pencilEraser;
-  transform: rotate(-90deg) translate(49px,0);
+  transform: rotate(-90deg) translate(49px, 0);
 }
 
 .pencil__eraser-skew {
@@ -54,7 +54,7 @@ body{
 
 .pencil__point {
   animation-name: pencilPoint;
-  transform: rotate(-90deg) translate(49px,-30px);
+  transform: rotate(-90deg) translate(49px, -30px);
 }
 
 .pencil__rotate {
@@ -63,7 +63,7 @@ body{
 
 .pencil__stroke {
   animation-name: pencilStroke;
-  transform: translate(100px,100px) rotate(-113deg);
+  transform: translate(100px, 100px) rotate(-113deg);
 }
 
 /* Animations */
@@ -110,11 +110,11 @@ body{
 @keyframes pencilEraser {
   from,
   to {
-    transform: rotate(-45deg) translate(49px,0);
+    transform: rotate(-45deg) translate(49px, 0);
   }
 
   50% {
-    transform: rotate(0deg) translate(49px,0);
+    transform: rotate(0deg) translate(49px, 0);
   }
 }
 
@@ -155,38 +155,38 @@ body{
 @keyframes pencilPoint {
   from,
   to {
-    transform: rotate(-90deg) translate(49px,-30px);
+    transform: rotate(-90deg) translate(49px, -30px);
   }
 
   50% {
-    transform: rotate(-225deg) translate(49px,-30px);
+    transform: rotate(-225deg) translate(49px, -30px);
   }
 }
 
 @keyframes pencilRotate {
   from {
-    transform: translate(100px,100px) rotate(0);
+    transform: translate(100px, 100px) rotate(0);
   }
 
   to {
-    transform: translate(100px,100px) rotate(720deg);
+    transform: translate(100px, 100px) rotate(720deg);
   }
 }
 
 @keyframes pencilStroke {
   from {
     stroke-dashoffset: 439.82;
-    transform: translate(100px,100px) rotate(-113deg);
+    transform: translate(100px, 100px) rotate(-113deg);
   }
 
   50% {
     stroke-dashoffset: 164.93;
-    transform: translate(100px,100px) rotate(-113deg);
+    transform: translate(100px, 100px) rotate(-113deg);
   }
 
   75%,
   to {
     stroke-dashoffset: 439.82;
-    transform: translate(100px,100px) rotate(112deg);
+    transform: translate(100px, 100px) rotate(112deg);
   }
 }

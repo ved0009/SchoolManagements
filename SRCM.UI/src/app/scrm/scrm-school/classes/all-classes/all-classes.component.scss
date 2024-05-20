@@ -4,8 +4,7 @@
 .card-container,.stu , .col-sm-2v {
     display: flex;
     flex-wrap: wrap;
-
-  }
+    }
 
 
  
@@ -16,10 +15,10 @@
     border-radius: 10px;
     margin: 10px; /* Add some space between cards */
   }
-  .custom-text-color{
+  .custom-text-color {
     color: #4b4b4b;
   }
-  .row,.row f{
+  .row,.row f {
     margin: 12px;
   }
 
@@ -53,7 +52,7 @@
     background-color: #edf1f7;
     cursor: pointer;
   }
-  .threebox{
+  .threebox {
     padding: 3px;
   }
   .icon-circle:hover,
