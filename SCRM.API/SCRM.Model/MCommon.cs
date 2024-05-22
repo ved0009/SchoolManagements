@@ -15,7 +15,7 @@ namespace SCRM.Model
     public class MRole
     {
         public int Id { get; set; }
-        public string RoleName { get; set; }
+        public string RoleName { get; set; } = string.Empty;
         public int Isactive { get; set; }
     }
 

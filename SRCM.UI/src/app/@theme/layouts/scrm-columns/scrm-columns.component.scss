@@ -6,6 +6,15 @@
   .menu-sidebar ::ng-deep .scrollable {
     padding-top: nb-theme(layout-padding-top);
   }
+  nb-layout-header {
+    // height: 50px;
+    background-color: rgb(63, 86, 237);
+    color: white;
+  }
+  nb-layout-footer {
+    background-color: rgb(213, 82, 243);
+    // height: 40px;
+  }
 }
 // nb-layout-header{
 //   height: 50px;

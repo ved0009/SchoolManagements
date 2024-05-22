@@ -213,3 +213,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+#ignore appsettings.json
+appsettings.json

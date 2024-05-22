@@ -76,7 +76,7 @@ namespace SCRM.Service
                     param.Add("@studentId", details.StudentId, DbType.Int32);
                     param.Add("@name", details.Name, DbType.String);
                     param.Add("@class", details.Class, DbType.String);
-                    param.Add("@section", details.Section, DbType.String);
+                    param.Add("@regNumber", details.RegistrationNumber, DbType.String);
                     param.Add("@image", details.Image, DbType.String);
                     param.Add("@dateOfAdmission", details.DateOfAdmission, DbType.DateTime);
                     param.Add("@mobile", details.Mobile, DbType.String);
@@ -116,7 +116,7 @@ namespace SCRM.Service
                             dbparam.Add("@Occupation",x.OccupationType, DbType.String);
                             dbparam.Add("@Education", x.EducationType, DbType.String);
                             dbparam.Add("@Mobile", x.Mobile, DbType.String);
-                            dbparam.Add("@Profession", x.Profession, DbType.String);
+                         //   dbparam.Add("@Profession", x.Profession, DbType.String);
                             dbparam.Add("@Income", x.Income, DbType.String);
                             //sp_std_InsertUpdateStudentParentInfo
                             var rresult = _dapper.Insert<string>("sp_std_InsertUpdateStudentParentInfo", dbparam, commandType: CommandType.StoredProcedure);

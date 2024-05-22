@@ -2,7 +2,9 @@ import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
  import {
   BloodGroup,
+  EducationType,
   Gender,
+  OccupationType,
   Religion,
 } from "../../../../Services/DataSharing/SCRMData";
 import { MasterClientService } from "../../../../Services/MasterClient/master-client.service";
@@ -47,6 +49,8 @@ export class NewStudentsComponent {
   gender: { id: number; name: string }[];
   bloodGroup: { id: number; name: string }[];
   classLists: any;
+  educationType: { id: number; name: string; }[];
+  occupationType: { id: number; name: string; }[];
   constructor(
     private formBuilder: FormBuilder,
     private _api: MasterClientService,
@@ -57,6 +61,8 @@ export class NewStudentsComponent {
     this.religion = Religion;
     this.gender = Gender;
     this.bloodGroup = BloodGroup;
+    this.educationType = EducationType;
+    this.occupationType = OccupationType;
 
      this.StudentBasicForm = this.formBuilder.group({
       StudentName: ["", [Validators.required]],
@@ -90,7 +96,7 @@ export class NewStudentsComponent {
       FOccupation: [""],
       FEducation: [""],
       FMobileNo: [""],
-      FProfession: [""],
+      // FProfession: [""],
       FIncome: [""],
 
       MotherName: [""],
@@ -98,7 +104,7 @@ export class NewStudentsComponent {
       MOccupation: [""],
       MEducation: [""],
       MMobileNo: [""],
-      MProfession: [""],
+      // MProfession: [""],
       MIncome: [""],
     });
     //   this.StudentBasicForm.valueChanges.subscribe(
@@ -120,7 +126,8 @@ export class NewStudentsComponent {
       studentId: 0,
       name: this.StudentBasicForm.controls["StudentName"].value,
       class: this.StudentBasicForm.controls["Class"].value,
-      section: 'A',
+      // section: 'A',
+      registrationNumber:this.StudentBasicForm.controls["RegistrationNo"].value,
       image: this.StudentBasicForm.controls["ImagesUrl"].value,
       dateOfAdmission: this.StudentBasicForm.controls["DateOfAdmission"].value,
       feeDiscount: this.StudentBasicForm.controls["DiscountInFee"].value,
@@ -149,7 +156,7 @@ export class NewStudentsComponent {
           parrentType: "Father",
           educationType: this.StudentBasicForm.controls["MEducation"].value,
           mobile: this.StudentBasicForm.controls["FMobileNo"].value,
-          profession: this.StudentBasicForm.controls["FProfession"].value,
+          // profession: this.StudentBasicForm.controls["FProfession"].value,
           income: this.StudentBasicForm.controls["FIncome"].value,
         },
         {
@@ -160,7 +167,7 @@ export class NewStudentsComponent {
           parrentType: "Mother",
           educationType: this.StudentBasicForm.controls["MEducation"].value,
           mobile: this.StudentBasicForm.controls["MMobileNo"].value,
-          profession: this.StudentBasicForm.controls["MProfession"].value,
+          // profession: this.StudentBasicForm.controls["MProfession"].value,
           income: this.StudentBasicForm.controls["MIncome"].value,
         },
       ],
@@ -210,7 +217,7 @@ export class NewStudentsComponent {
   }
 
   // uploadImage
-
+// function to puch the selected data
   onFileSelected(event: any) {
     this.selectedFile = <File>event.target.files[0];
   }
