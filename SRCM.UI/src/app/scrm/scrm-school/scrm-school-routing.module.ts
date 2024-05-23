@@ -33,6 +33,11 @@ const routes: Routes = [
         loadChildren: () =>
           import("./employees/employees.module").then((m) => m.EmployeesModule),
       },
+      {
+        path: "GeneralSetting",
+        loadChildren: () =>
+          import("./general-setting/general-setting.module").then((m) => m.GeneralSettingModule),
+      },
     ],
   },
 

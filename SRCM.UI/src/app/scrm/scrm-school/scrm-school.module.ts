@@ -6,11 +6,11 @@ import { ScrmSchoolComponent } from './scrm-school.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
-
 @NgModule({
   declarations: [
     ScrmSchoolComponent,
     DashboardComponent,
+
 
   ],
   imports: [

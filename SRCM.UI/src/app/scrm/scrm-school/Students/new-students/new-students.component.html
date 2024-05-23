@@ -41,34 +41,55 @@
                     />
                   </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-md-4">
                   <div class="form-group">
                     <label for="inputLastName" class="label"
                       >Select Class</label
                     >
-
                     <!-- classLists -->
                     <label for="inputEmail" class="Mandatory">*</label>
-                    <nb-select  fullWidth placeholder="Select"
-                    formControlName="Gender">
-                        <nb-option *ngFor="let item of classLists" [value]="item.id">
-                          {{ item.className }}</nb-option>
-
-                      </nb-select>
+                    <nb-select
+                      fullWidth
+                      placeholder="Select"
+                      class="mt-0"
+                      formControlName="Gender"
+                    >
+                      <nb-option
+                        *ngFor="let item of classLists"
+                        [value]="item.id"
+                      >
+                        {{ item.className }}</nb-option
+                      >
+                    </nb-select>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-4">
                   <div class="form-group">
-                    <label for="inputEmail" class="label">Picture</label>
-                    <input
-                      type="file"
-                      nbInput
-                      fullWidth
-                      id="inputEmail"
-                      (change)="onFileSelected($event)"
-                    />
+                    <div class="row">
+                      <div class="col-10">
+                        <label for="inputEmail" class="label">Picture</label>
+                        <input
+                          type="file"
+                          nbInput
+                          fullWidth
+                          id="inputEmail"
+                          (change)="onFileSelected($event)"
+                        />
+                      </div>
+                      <div class="col-2 mt-4 float-left">
+                        <button
+                          class="btn-update mt-4 me-5"
+                          style="margin-left: -31px"
+                          (click)="UploadImage()"
+                          class="btn-yes"
+                        >
+                          <i class="fa fa-upload"></i>
+                        </button>
+                      </div>
+                    </div>
+
                     <label class="Mandatory">Max Size 100Kb</label>
                   </div>
                 </div>
@@ -111,7 +132,8 @@
                     <!-- <img [src]="this.imageUrl" alt="image "/> -->
                   </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-md-4"></div>
+                <!-- <div class="col-sm-4">
                   <div class="form-group">
                     <button
                       class="btn-update mt-4"
@@ -121,7 +143,7 @@
                       Upload image
                     </button>
                   </div>
-                </div>
+                </div> -->
                 <div class="col-sm-4">
                   <div class="form-group">
                     <label for="inputWebsite" class="label"
@@ -183,27 +205,30 @@
                     <label for="inputLastName" class="label"
                       >Orphan Student</label
                     >
-                    <nb-select  fullWidth placeholder="Select"
-                    formControlName="isOrphan">
-                        <nb-option   [value]="1">
-                          Yes</nb-option>
-                        <nb-option   [value]="2">
-                          No</nb-option>
-
-                      </nb-select>
+                    <nb-select
+                      fullWidth
+                      placeholder="Select"
+                      formControlName="isOrphan"
+                    >
+                      <nb-option [value]="1"> Yes</nb-option>
+                      <nb-option [value]="2"> No</nb-option>
+                    </nb-select>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-4">
                   <!-- <div class="form-group"> -->
-                    <label for="inputEmail" class="label">Gender</label>
-                    <nb-select  fullWidth placeholder="Select"
-                    formControlName="Gender">
-                        <nb-option *ngFor="let item of gender" [value]="item.id">
-                          {{ item.name }}</nb-option>
-
-                      </nb-select>
+                  <label for="inputEmail" class="label">Gender</label>
+                  <nb-select
+                    fullWidth
+                    placeholder="Select"
+                    formControlName="Gender"
+                  >
+                    <nb-option *ngFor="let item of gender" [value]="item.id">
+                      {{ item.name }}</nb-option
+                    >
+                  </nb-select>
                   <!-- </div> -->
                 </div>
                 <div class="col-sm-4">
@@ -223,14 +248,14 @@
                   <div class="form-group">
                     <label for="inputWebsite" class="label">OSC</label>
 
-                    <nb-select  fullWidth placeholder="Select"
-                    formControlName="OSC">
-                        <nb-option   [value]="1">
-                          Yes</nb-option>
-                        <nb-option   [value]="2">
-                          No</nb-option>
-
-                      </nb-select>
+                    <nb-select
+                      fullWidth
+                      placeholder="Select"
+                      formControlName="OSC"
+                    >
+                      <nb-option [value]="1"> Yes</nb-option>
+                      <nb-option [value]="2"> No</nb-option>
+                    </nb-select>
                   </div>
                 </div>
               </div>
@@ -268,16 +293,18 @@
                 <div class="col-sm-4">
                   <div class="form-group">
                     <label for="inputWebsite" class="label">Religion</label>
-                    <nb-select  fullWidth
-                    placeholder="Religion"
-                    formControlName="Religion"
+                    <nb-select
+                      fullWidth
+                      placeholder="Religion"
+                      formControlName="Religion"
                     >
-
-                        <nb-option  *ngFor="let item of religion" [value]="item.id">
-                          {{ item.name }}</nb-option>
-
-                      </nb-select>
-
+                      <nb-option
+                        *ngFor="let item of religion"
+                        [value]="item.id"
+                      >
+                        {{ item.name }}</nb-option
+                      >
+                    </nb-select>
                   </div>
                 </div>
               </div>
@@ -285,16 +312,18 @@
                 <div class="col-sm-4">
                   <div class="form-group">
                     <label for="inputEmail" class="label">Blood Group</label>
-                    <nb-select  fullWidth
-                    placeholder="Blood Group"
+                    <nb-select
+                      fullWidth
+                      placeholder="Blood Group"
                       formControlName="BloodGroup"
                     >
-
-                        <nb-option   *ngFor="let item of bloodGroup" [value]="item.id">
-                          {{ item.name }}</nb-option>
-
-                      </nb-select>
-
+                      <nb-option
+                        *ngFor="let item of bloodGroup"
+                        [value]="item.id"
+                      >
+                        {{ item.name }}</nb-option
+                      >
+                    </nb-select>
                   </div>
                 </div>
                 <div class="col-sm-4">
@@ -435,15 +464,18 @@
                         <label for="inputLastName" class="label"
                           >Occupation</label
                         >
-                        <nb-select  fullWidth
-                        placeholder="Occupation"
+                        <nb-select
+                          fullWidth
+                          placeholder="Occupation"
                           formControlName="FOccupation"
                         >
-                            <nb-option *ngFor="let item of occupationType" [value]="item.id">
-                              {{ item.name }}</nb-option>
-
-                          </nb-select>
-
+                          <nb-option
+                            *ngFor="let item of occupationType"
+                            [value]="item.id"
+                          >
+                            {{ item.name }}</nb-option
+                          >
+                        </nb-select>
                       </div>
                     </div>
                   </div>
@@ -451,15 +483,18 @@
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label for="inputEmail" class="label">Education</label>
-                        <nb-select  fullWidth
-                        placeholder="Education"
+                        <nb-select
+                          fullWidth
+                          placeholder="Education"
                           formControlName="FEducation"
                         >
-                            <nb-option *ngFor="let item of educationType" [value]="item.id">
-                              {{ item.name }}</nb-option>
-
-                          </nb-select>
-
+                          <nb-option
+                            *ngFor="let item of educationType"
+                            [value]="item.id"
+                          >
+                            {{ item.name }}</nb-option
+                          >
+                        </nb-select>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -563,16 +598,18 @@
                         <label for="inputLastName" class="label"
                           >Occupation</label
                         >
-                        <nb-select  fullWidth
-                        placeholder="Occupation"
+                        <nb-select
+                          fullWidth
+                          placeholder="Occupation"
                           formControlName="MOccupation"
                         >
-                            <nb-option *ngFor="let item of occupationType" [value]="item.id">
-                              {{ item.name }}</nb-option>
-
-                          </nb-select>
-
-
+                          <nb-option
+                            *ngFor="let item of occupationType"
+                            [value]="item.id"
+                          >
+                            {{ item.name }}</nb-option
+                          >
+                        </nb-select>
                       </div>
                     </div>
                   </div>
@@ -580,15 +617,18 @@
                     <div class="col-sm-4">
                       <div class="form-group">
                         <label for="inputEmail" class="label">Education</label>
-                        <nb-select  fullWidth
-                        placeholder="Education"
+                        <nb-select
+                          fullWidth
+                          placeholder="Education"
                           formControlName="MEducation"
                         >
-                            <nb-option *ngFor="let item of educationType" [value]="item.id">
-                              {{ item.name }}</nb-option>
-
-                          </nb-select>
-
+                          <nb-option
+                            *ngFor="let item of educationType"
+                            [value]="item.id"
+                          >
+                            {{ item.name }}</nb-option
+                          >
+                        </nb-select>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -654,7 +694,9 @@
           <ng-template #labelFive>Registration status</ng-template>
 
           <button nbStepperPrevious class="btn-reset">prev</button>
-          <button nbStepperNext class="btn-save" (click)="onSubmit()">Submit</button>
+          <button nbStepperNext class="btn-save" (click)="onSubmit()">
+            Submit
+          </button>
         </nb-step>
       </nb-stepper>
     </form>

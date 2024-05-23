@@ -97,14 +97,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: "list-outline",
       },
       {
-  
+
         title: "Add Employees",
         link: "/scrm/School/Employees/newemployees",
         icon: "person-add-outline",
       },
       {
- 
- 
+
+
         title: "Staff ID Card",
         link: "/scrm/School/Employees/staffcard",
         icon: "person-add-outline",
@@ -112,6 +112,61 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: "Job Letter",
         link: "/scrm/School/Employees/jobletter",
+        icon: "person-add-outline",
+      },
+
+    ],
+  },
+  {
+    title: "GeneralSetting",
+    icon: "award-outline",
+    children: [
+      {
+        title: "Institute Profile",
+        link: "/scrm/School/GeneralSetting/schoolinfo",
+        icon: "list-outline",
+      },
+      {
+
+        title: "Fee Particular",
+        link: "/scrm/School/GeneralSetting/feeparticulars",
+        icon: "person-add-outline",
+      },
+      {
+
+
+        title: "Fee Structure",
+        link: "/scrm/School/GeneralSetting/feestructure",
+        icon: "person-add-outline",
+      },
+      {
+        title: "Discount Type",
+        link: "/scrm/School/GeneralSetting/discounttype",
+        icon: "person-add-outline",
+      },
+      {
+        title: "Details For Fee Challan",
+        link: "/scrm/School/GeneralSetting/bankdetails",
+        icon: "person-add-outline",
+      },
+      {
+        title: "Rules & Regulations",
+        link: "/scrm/School/GeneralSetting/rules",
+        icon: "person-add-outline",
+      },
+      {
+        title: "Marks Grading",
+        link: "/scrm/School/GeneralSetting/grading",
+        icon: "person-add-outline",
+      },
+      {
+        title: "Theme & Language",
+        link: "/scrm/School/GeneralSetting/themesettings",
+        icon: "person-add-outline",
+      },
+      {
+        title: "Account Setting",
+        link: "/scrm/School/GeneralSetting/accountsetting",
         icon: "person-add-outline",
       },
 
