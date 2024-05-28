@@ -10,6 +10,7 @@ namespace SCRM.IService
     public interface IStudent
     {
         Response GetAllStudentLists(int Id);
+        Response  StudentAdmissionLetter(StudentAdmissionLetter admissionLetter);
         Response InsertUpdateStudentDetails(InsertUpdateStudentDetails insertUpdateStudentDetails);
     }
 }

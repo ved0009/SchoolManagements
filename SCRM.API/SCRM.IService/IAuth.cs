@@ -10,5 +10,5 @@ namespace SCRM.IService
     public interface IAuth
     {
         Response Login(MUserLogin login);   
-    }
+     }
 }

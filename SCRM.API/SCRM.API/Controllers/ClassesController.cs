@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SCRM.IService;
 using SCRM.Model;
 
 namespace SCRM.API.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize(Roles ="Admin")]
     public class ClassesController : ControllerBase
     {
         private readonly IClassess _class;

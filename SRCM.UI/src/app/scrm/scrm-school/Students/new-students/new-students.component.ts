@@ -29,7 +29,7 @@ export class NewStudentsComponent {
     RegistrationNo: {
       required: "RegistrationNo is required.",
     },
-    Class: {
+    PClass: {
       required: "Class is required.",
     },
     DateOfAdmission: {
@@ -67,7 +67,7 @@ export class NewStudentsComponent {
      this.StudentBasicForm = this.formBuilder.group({
       StudentName: ["", [Validators.required]],
       RegistrationNo: ["", [Validators.required]],
-      Class: ["", [Validators.required]],
+      PClass: ["", [Validators.required]],
       DateOfAdmission: ["", [Validators.required]],
       DiscountInFee: ["", [Validators.required]],
       MobileNoWhatsapp: ["", Validators.pattern("0-9")],
@@ -125,7 +125,7 @@ export class NewStudentsComponent {
     const data = {
       studentId: 0,
       name: this.StudentBasicForm.controls["StudentName"].value,
-      class: this.StudentBasicForm.controls["Class"].value,
+      class: this.StudentBasicForm.controls["PClass"].value,
       // section: 'A',
       registrationNumber:this.StudentBasicForm.controls["RegistrationNo"].value,
       image: this.StudentBasicForm.controls["ImagesUrl"].value,

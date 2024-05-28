@@ -1,1 +1,42 @@
-<p>job-letter works!</p>
+<div class="search-container" *ngIf="!isPrint">
+    <input type="text" [(ngModel)]="query" (input)="searchEmployee()" placeholder="Search employee...">
+    <div *ngIf="employees.length" class="result-list">
+      <div *ngFor="let employee of employees" class="result-item" (click)="selectEmployee(employee)">
+        {{employee.id}} - {{employee.fullName}} - {{employee.role}}
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="container" *ngIf="isPrint">
+    <div class="header">
+      <div class="breadcrumbs">
+        <span>Employees</span> <span> &gt; </span> <span>Job Letter</span>
+      </div>
+    </div>
+    <div class="content">
+      <div class="employee-info">
+        <img src="assets/avatar.png" alt="Employee Avatar" class="avatar">
+        <div class="details">
+          <h2>{{selectedEmployee.fullName}}</h2>
+          <div class="info">
+            <p><strong>Registration/ID:</strong> {{selectedEmployee.nationalId}}</p>
+            <p><strong>Employee Role:</strong> Teacher</p>
+            <p><strong>Date of Joining:</strong> {{selectedEmployee.dateOfJoining}}</p>
+            <p><strong>Account Status:</strong> <span class="status-active">Active</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="portal-info">
+        <p><strong>Portal URL:</strong> <a href="https://eskooly.com/bb/signin.php" target="_blank">eskooly.com/bb/signin.php</a></p>
+        <p><strong>Username:</strong> 76244c8oZMl</p>
+        <p><strong>Password:</strong> 76244c8oZMl</p>
+      </div>
+      <div class="actions">
+        <button class="print-button mx-2" (click)="printJobLetter()">Print Job Letter</button>
+        <button class="print-button" (click)="back()">Back</button>
+
+      </div>
+    </div>
+  </div>
+  

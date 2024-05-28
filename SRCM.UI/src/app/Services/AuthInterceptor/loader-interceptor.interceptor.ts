@@ -33,12 +33,18 @@ export class LoaderInterceptorInterceptor implements HttpInterceptor {
           // // Check if the response is an HTTP response
           // if (event instanceof HttpResponse) {
           // }
+          this.spinnerService.hideLoad();
         },
         (error: any) => {
            if (error instanceof HttpErrorResponse) {
             if (error.status===401) {
               this._dl.showToast(webToasterPosition.toasterTopLeftPosition,'danger','Please login again');
               // this._router.navigateByUrl('/auth');
+            }
+            if (error.status===403) {
+              this._dl.showToast(webToasterPosition.toasterTopLeftPosition,'danger','You are not authorize');
+              // this._router.navigateByUrl('/auth');
+              // next.handle(request);
             }
             if (error.statusText === 'Unknown Error') {
               this._dl.showToast(webToasterPosition.toasterTopLeftPosition,'danger','Server down please try after some times !');

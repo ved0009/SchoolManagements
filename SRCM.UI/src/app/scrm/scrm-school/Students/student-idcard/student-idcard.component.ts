@@ -24,7 +24,7 @@ ngOnInit(): void {
 }
 
   getStudentsLists() {
-    this._api.GetList("Student", "GetAllStudentLists/1").subscribe({
+    this._api.GetList("Student", "GetAllStudentLists/0").subscribe({
       next: (res) => {
         this.studentsLists = res.responseData;
 

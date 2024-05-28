@@ -27,17 +27,22 @@
           </div>
 
 
-
+<!-- teacherList -->
          <div class="form-group">
                 <label for="inputLastName" class="label">Select Class Teacher</label>
                 <label for="inputEmail" class="Mandatory">*</label>
-                <nb-select  fullWidth placeholder="Select"
-                formControlName="classteacher">
-                    <nb-option value="1">1</nb-option>
-                    <nb-option value="2">2</nb-option>
-                    <nb-option value="3">3</nb-option>
-                    <nb-option value="4">Hello user</nb-option>
-                  </nb-select>
+                  <nb-select
+                          fullWidth
+                          placeholder="Select"
+                          formControlName="classteacher"
+                        >
+                          <nb-option
+                            *ngFor="let item of teacherList"
+                            [value]="item.id"
+                          >
+                            {{ item.fullName }}</nb-option
+                          >
+                        </nb-select>
 
         </div>
       </form>

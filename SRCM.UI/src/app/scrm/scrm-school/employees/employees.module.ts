@@ -8,7 +8,7 @@ import { StafIdCardComponent } from './staf-id-card/staf-id-card.component';
 import { JobLetterComponent } from './job-letter/job-letter.component';
   import { ThemetagsimportModule } from '../../../themetagsimport/themetagsimport.module';
 import { AddNewEmployeeComponent } from './add-new-employee/add-new-employee.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     EmployeesRoutingModule,
     ThemetagsimportModule,
     ReactiveFormsModule,
+    FormsModule
   ],
 
  })

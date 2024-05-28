@@ -16,6 +16,7 @@ builder.Services.AddTransient<ICommonService, CommonService>();
 builder.Services.AddTransient<IStudent, SStudent>();
 builder.Services.AddTransient<IClassess, SClass>();
 builder.Services.AddTransient<IEmployee, SEmployee>();
+builder.Services.AddTransient<ISubject, SSubject>();
 builder.Services.Configure<FormOptions>(options =>
 {
     options.MultipartBodyLengthLimit = 268435456; // 256 MB
@@ -52,7 +53,12 @@ builder.Services.AddCors(options =>
         });
 });
 
-
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
+    options.AddPolicy("TeacherOnly", policy => policy.RequireRole("Teacher"));
+    options.AddPolicy("StudentOnly", policy => policy.RequireRole("Student"));
+});
 var app = builder.Build();
 app.UseCors("AllowAngularApp");
 

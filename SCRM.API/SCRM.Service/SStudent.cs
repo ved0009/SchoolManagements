@@ -1,14 +1,7 @@
 ﻿using Dapper;
 using SCRM.IService;
 using SCRM.Model;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Net;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SCRM.Service
 {
@@ -100,10 +93,13 @@ namespace SCRM.Service
                     param.Add("@TotalSibling", details.TotalSiblings, DbType.Int32);
                     param.Add("@Address", details.Address, DbType.String);
                     //details.StudentId = _dapper.Insert<int>("sp_std_InsertUpdateStudentOtherInfo", param, commandType: CommandType.StoredProcedure);
+                    if (details.insertUpdateStudentDetailsParentsInfos != null)
+                    {
+                        var parentcount = details.insertUpdateStudentDetailsParentsInfos.Count;
 
-                    var parentcount = details.insertUpdateStudentDetailsParentsInfos.Count;
+                    }
 
-                   details.StudentId  = _dapper.Insert<int>("sp_std_InsertUpdateStudentDetails", param, commandType: CommandType.StoredProcedure);
+                    details.StudentId  = _dapper.Insert<int>("sp_std_InsertUpdateStudentDetails", param, commandType: CommandType.StoredProcedure);
                     if (details.StudentId > 0)
                     {
                         var dbparam = new DynamicParameters();
@@ -127,6 +123,48 @@ namespace SCRM.Service
                         response.message = "Success";
                         response.success = true;
                         response.responseData ="Registration successfull";
+
+                    }
+                    else
+                    {
+                        response.totalRecords = 0;
+                        response.message = "No record found";
+                        response.success = false;
+                        response.responseData = null;
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    response.totalRecords = -1;
+                    response.message = ex.Message;
+                    response.success = false;
+                    response.responseData = ex.Message;
+                }
+
+            }
+            return response;
+        }
+
+        public Response StudentAdmissionLetter(StudentAdmissionLetter admissionLetter)
+        {
+            using (response = new Response())
+            {
+                try
+                {
+                    List<StudentList> studentLists = new List<StudentList>();
+                    var param = new DynamicParameters();
+                    param.Add("@pclassId", admissionLetter.ClassId, DbType.Int32);
+                    param.Add("@pname", admissionLetter.Name, DbType.String);
+                     studentLists = _dapper.GetAll<StudentList>("sp_std_GetAllStudentsLetter", param, commandType: CommandType.StoredProcedure);
+                    if (studentLists != null)
+                    {
+
+                        response.totalRecords = 1;
+                        response.message = "Success";
+                        response.success = true;
+                        response.responseData = studentLists;
 
                     }
                     else

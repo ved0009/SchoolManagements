@@ -1,0 +1,110 @@
+.search-container {
+    position: relative;
+    width: 300px;
+    margin: 50px auto;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .result-list {
+    position: absolute;
+    top: 45px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    background-color: #fff;
+    max-height: 150px;
+    overflow-y: auto;
+  }
+  
+  .result-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .result-item:hover {
+    background-color: #f1f1f1;
+  }
+  
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    margin-bottom: 20px;
+  }
+  
+  .breadcrumbs {
+    font-size: 18px;
+    color: #666;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .employee-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .details h2 {
+    margin: 0;
+  }
+  
+  .info p {
+    margin: 5px 0;
+  }
+  
+  .status-active {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .portal-info p {
+    margin: 5px 0;
+  }
+  
+  .actions {
+    text-align: right;
+  }
+  
+  .print-button {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .print-button:hover {
+    background-color: #357ab7;
+  }
+  

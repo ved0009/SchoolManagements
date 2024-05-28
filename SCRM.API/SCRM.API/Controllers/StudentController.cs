@@ -23,6 +23,13 @@ namespace SCRM.API.Controllers
         {
             var result = _students.GetAllStudentLists(Id);
             return Ok(result);
+        } 
+        [HttpPost("GetStudentLetter")]
+
+        public IActionResult GetStudentLetter(StudentAdmissionLetter admissionLetter)
+        {
+            var result = _students.StudentAdmissionLetter(admissionLetter);
+            return Ok(result);
         }
 
         [HttpPost("InsertUpdateStudentDetails")]

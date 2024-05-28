@@ -21,18 +21,24 @@ namespace SCRM.Model
         public string Image { get; set; } = string.Empty;
         public string StudentId { get; set; } = string.Empty;
         public string Class { get; set; } = string.Empty;   
+        public string RegistrationNumber { get; set; } = string.Empty;   
+        public DateTime DateOfAdmission { get; set; } 
     }
-
+    public class StudentAdmissionLetter
+    {
+        public int ClassId { get; set; }
+        public string Name { get; set; } = string.Empty;
+     }
     public class InsertUpdateStudentDetails
     {
         public int StudentId { get; set; } = 0;
         public string Name { get; set; } = string.Empty;                    
-        public string Class { get; set; } = string.Empty;
+        public int Class { get; set; } = 0;
         public string RegistrationNumber { get; set; } = string.Empty;
         public string Image { get; set; } = string.Empty;
         public DateTime DateOfAdmission { get; set; }
         public decimal FeeDiscount { get; set; }
-        public string Mobile { get; set; }
+        public string Mobile { get; set; } = string.Empty;
 
         // other infomations //
 
@@ -53,7 +59,7 @@ namespace SCRM.Model
         public string Address { get; set; } = string.Empty;     
 
 
-        public List<InsertUpdateStudentDetailsParentsInfo> insertUpdateStudentDetailsParentsInfos { get; set; }
+        public List<InsertUpdateStudentDetailsParentsInfo>? insertUpdateStudentDetailsParentsInfos { get; set; }
     }
 
     public class InsertUpdateStudentDetailsParentsInfo

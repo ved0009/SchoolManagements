@@ -43,6 +43,7 @@ import { ScrmHeaderComponent } from './components/header/scrm-header/scrm-header
 import { ScrmFooterComponent } from './components/footer/scrm-footer/scrm-footer.component';
 import { ScrmColumnsComponent } from './layouts/scrm-columns/scrm-columns.component';
 import { AuthColumnsComponent } from './layouts/auth-columns/auth-columns.component';
+import { ScrmDialongComponent } from './components/scrm-dialong/scrm-dialong.component';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -83,7 +84,7 @@ const PIPES = [
 @NgModule({
   imports: [CommonModule, ...NB_MODULES],
   exports: [CommonModule, ...PIPES, ...COMPONENTS],
-  declarations: [...COMPONENTS, ...PIPES  ],
+  declarations: [...COMPONENTS, ...PIPES, ScrmDialongComponent  ],
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders<ThemeModule> {

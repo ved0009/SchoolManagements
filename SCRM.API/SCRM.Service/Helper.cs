@@ -55,7 +55,8 @@ namespace SCRM.Service
                 new Claim("UserId",user.UserId.ToString()),
                 new Claim("Name",value: user.FullName),
                 new Claim("Email",value: user.Email),
-                new Claim("Role",user.RoleId.ToString())
+                new Claim("RoleId",user.RoleId.ToString()),
+                new Claim(ClaimTypes.Role,user.RoleName.ToString())
             };
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
                 _config["Jwt:Audience"],

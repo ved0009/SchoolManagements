@@ -1,9 +1,5 @@
-﻿using SCRM.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http;
+using SCRM.Model;
 
 namespace SCRM.IService
 {
@@ -14,6 +10,9 @@ namespace SCRM.IService
         Response ProfileDetails(int userid);
   
         Response GetRole();
+        Response CreateUserLogins(int userid);
+        Response DeleteFiles(string FileName, string FileTypes);
+        Response UploadFiles(IFormFile file, string FileTypes);
  
      }
 }

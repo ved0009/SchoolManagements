@@ -15,4 +15,9 @@
     <ProjectReference Include="..\SCRM.Service\SCRM.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
 </Project>

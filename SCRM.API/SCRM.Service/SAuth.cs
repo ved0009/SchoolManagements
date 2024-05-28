@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SCRM.Service
 {
-    public class SAuth : IAuth
+    public class SAuth : IAuth 
     {
         private readonly IDapperConnections _dapper;
          private readonly IConfiguration _config;
@@ -22,6 +22,7 @@ namespace SCRM.Service
             _config = config;
         }
 
+        
         public Response Login(MUserLogin login)
         {
             using (response = new Response())
@@ -64,6 +65,11 @@ namespace SCRM.Service
             }
 
             return response;
+        }
+
+        public Response ProfileDetails(int userid)
+        {
+            throw new NotImplementedException();
         }
     }
 }

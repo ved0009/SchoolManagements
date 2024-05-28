@@ -1,1 +1,56 @@
-<p>assign-subject works!</p>
+<nb-card>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-sm-9">
+        <h6 class="text-left">Create Subject</h6> <!-- Align text to the left -->
+      </div>
+      <div class="col-sm-3 d-flex justify-content-end">
+      </div>
+    </div>
+    <!-- Search fields -->
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-body>
+    <form [formGroup]="newSubjectForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="classname" class="label">Select Class</label>
+        <label for="classname" style="color: red;">*</label>
+        <nb-select fullWidth placeholder="Select*"
+                   formControlName="classname">
+          <nb-option *ngFor="let test of classList" [value]="test.id">{{test.className}}</nb-option>
+        </nb-select>
+      </div>
+      <div formArrayName="subjects">
+        <div class="row" *ngFor="let subject of ArrSubject.controls; let i = index" [formGroupName]="i">
+          <div class="col-sm-8">
+            <div class="form-group">
+              <label for="subjectName" class="label">Subject Name</label>
+              <label for="subjectName" style="color: red;">*</label>
+              <input type="text" nbInput fullWidth formControlName="subjectName"
+                     placeholder="Name of Subject">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="marks" class="label">Marks</label>
+              <label for="marks" style="color: red;">*</label>
+              <input type="text" nbInput fullWidth formControlName="marks"
+                     placeholder="Total Exam Marks">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center d-flex mt-3">
+        <div class="icon-circle bg-primary mx-2" (click)="addNewRow()">
+          <i class="fas fa-plus text-light"></i>
+        </div>
+        <div class="icon-circle bg-danger mx-2" (click)="removeLastRow()">
+          <i class="fas fa-trash text-light"></i>
+        </div>
+      </div>
+      <button nbButton status="warning" type="submit" class="submit-button">Assign Subject</button>
+    </form>
+  </nb-card-body>
+</nb-card>

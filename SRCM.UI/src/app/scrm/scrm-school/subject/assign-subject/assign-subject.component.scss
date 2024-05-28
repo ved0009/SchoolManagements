@@ -1,0 +1,86 @@
+/* General styling for card */
+nb-card {
+  margin-bottom: 20px;
+}
+
+.nb-card-body {
+  padding: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col-sm-8, .col-sm-4, .col-sm-9, .col-sm-3 {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+}
+
+@media (min-width: 576px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .col-sm-8 {
+    width: 66.6667%;
+  }
+
+  .col-sm-4 {
+    width: 33.3333%;
+  }
+
+  .col-sm-9 {
+    width: 75%;
+  }
+
+  .col-sm-3 {
+    width: 25%;
+  }
+}
+
+.text-left {
+  text-align: left;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.submit-button {
+  display: block;
+  margin: 20px auto 0;
+}
+.icon-circle,
+.icon-circle-add {
+  width: 40px;
+  height: 40px;
+  color: aliceblue;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #949faa;
+  cursor: pointer;
+}
+
+.icon-circle:hover,
+.icon-circle-add:hover {
+  background-color: #666b70;
+}

@@ -1,16 +1,91 @@
-<div class="admission-confirmation">
+<nb-card>
+  <nb-card-header class="my-0">Admission letter</nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="searchStudents">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="inputLastName" class="label">Select Class</label>
+            <!-- classLists -->
+            <!-- <label for="inputEmail" class="Mandatory">*</label> -->
+            <nb-select
+              fullWidth
+              placeholder="Select"
+              class="mt-0"
+              formControlName="classId"
+            >
+              <nb-option *ngFor="let item of classLists" [value]="item.id">
+                {{ item.className }}</nb-option
+              >
+            </nb-select>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="inputLastName" class="label"
+              >Enter name/registration number</label
+            >
+            <input
+              nbInput
+              formControlName="studentFilter"
+              fullWidth
+              placeholder="Nisha"
+            />
+          </div>
+
+        </div>
+
+        <div class="col-md-2" >
+          <div class="form-group">
+            <button (click)="getStudentsLists()" class="btn-search mt-4">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="row" *ngIf="enableStudentsLists">
+      <div class="col-md-12 card-body">
+        <div class="table-responsive-lg">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Registration Id</th>
+                <th scope="col">Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="" *ngFor="let item of studentsLists" (click)="showLetter(item)">
+                <td scope="row">
+                  <img class="std-img" [src]="item.image" [alt]="item.name" />
+                </td>
+                <td>{{ item.studentId }}</td>
+                <td>{{ item.name }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+
+<div class="admission-confirmation" *ngIf="enableStudentsLetter">
   <div class="header">
     ADMISSION CONFIRMATION
   </div>
   <div class="content">
     <div class="profile-picture">
-      <img src="profile-placeholder.png" alt="Profile Picture">
+      <img [src]="StudentLetter.image" alt="Profile Picture">
     </div>
     <div class="details">
-      <h2>Abhinandan</h2>
-      <p><strong class="text-left">Registration/ID:</strong> F16-00FASDI</p>
-      <p><strong class="text-left">Class:</strong> 4th</p>
-      <p><strong class="text-left">Admission Date:</strong> 06 May, 2024</p>
+      <h2>{{StudentLetter.name}}</h2>
+      <p><strong class="text-left">Registration/ID:</strong> {{StudentLetter.registrationNumber}}</p>
+      <p><strong class="text-left">Class:</strong> {{StudentLetter.class}}</p>
+      <p><strong class="text-left">Admission Date:</strong> {{StudentLetter.dateOfAdmission|date:'dd-MMM-yyyy'}}</p>
       <p><strong class="text-left">Account Status:</strong> <span class="active">Active &#10003;</span></p>
       <p><strong class="text-left">Username:</strong> 76244eN4oF16-00FASDI</p>
       <p><strong class="text-left">Password:</strong> 76244eN4oF16-00FASDI</p>
@@ -20,3 +95,9 @@
     <button>Print Admission Letter</button>
   </div>
 </div>
+
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </nb-card-body>
+</nb-card>

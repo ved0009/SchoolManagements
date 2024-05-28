@@ -1,1 +1,62 @@
-<p>classess-with-subjects works!</p>
+<nb-card>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-sm-9">
+        <h6 class="text-left">All Subject</h6> <!-- Align text to the left -->
+      </div>
+      <div class="col-sm-3 d-flex justify-content-end">
+      </div>
+    </div>
+    <!-- Search fields -->
+  </nb-card-body>
+</nb-card>
+
+<div class="card-container">
+  <div class="card" *ngFor="let i of SubjectLists">
+    <div class="header-section">
+      <div class="row">
+        <div class="col-sm-8">
+          <h4 class="custom-text-color">{{ i.className }}</h4>
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+          <i
+            class="fas fa-edit"
+            (click)="edit(i)"
+            style="font-size: 16px; color: rgb(46, 29, 205)"
+          ></i>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="stu">
+            <h2>{{ i.totalMarks }}</h2>
+            <h6 class="txtclr">Total Marks</h6>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <i
+            class="fa fa-folder"
+            style="font-size: 48px; color: rgb(46, 29, 205)"
+          ></i>
+        </div>
+      </div>
+    </div>
+    <div class="subjects-section">
+      <div class="row" *ngFor="let j of i.subjectDetails">
+        <div class="col-6 txtclr" >{{ j.subjectName }}</div>
+        <div class="col-6 txtclr" >{{ j.marks }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="profile-section">
+      <div class="empty-state" (click)="add()">
+        <i class="fas fa-plus"> </i>
+      </div>
+      <div class="details">
+        <h6>Add New</h6>
+      </div>
+    </div>
+  </div>
+</div>

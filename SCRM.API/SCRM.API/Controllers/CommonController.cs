@@ -42,27 +42,18 @@ namespace SCRM.API.Controllers
 
 
         [HttpPost("UploadImage")]
-        public IActionResult UploadImage(IFormFile image)
+        public IActionResult UploadImage(IFormFile image,string FilesTypes)
         {
-            if (image == null || image.Length == 0) 
-                return BadRequest("No file uploaded.");
-
-            var uploadsPath = Path.Combine(_env.ContentRootPath, "Images");
-            if (!Directory.Exists(uploadsPath))
-            {
-                Directory.CreateDirectory(uploadsPath);
-            }
-
-            var filePath = Path.Combine(uploadsPath, image.FileName);
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                  image.CopyToAsync(stream);
-            }
-
-            var fileUrl = $"{Request.Scheme}://{Request.Host}/Images/{image.FileName}";
-            return Ok(new { url = fileUrl });
+            var data = _commonService.UploadFiles(image, FilesTypes);
+           
+            return Ok(new { url = data });
         }
 
+        [HttpDelete("DeleteFiles")]
+        public IActionResult DeleteFiles(string filesName,string FileTypes)
+        {
+         return   Ok(new { filesName = filesName,message= "File deleted successfully" });
+        }
 
 
     }   

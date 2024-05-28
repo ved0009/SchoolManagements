@@ -30,6 +30,7 @@ namespace SCRM.Service
                     List<MEmployeeList> employeeLists = new List<MEmployeeList>(); 
                     var dbparams = new DynamicParameters();
                     dbparams.Add("@pid", 0, DbType.Int32);
+                    dbparams.Add("@proleId", 3, DbType.Int32);
 
                     employeeLists = _dapper.GetAll<MEmployeeList>("sp_std_GetAllEmployees", dbparams, commandType: CommandType.StoredProcedure);
                     if (employeeLists.Count > 0)

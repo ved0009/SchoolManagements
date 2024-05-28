@@ -12,7 +12,7 @@ import { StudentIDCardComponent } from "./student-idcard/student-idcard.componen
 import { PrintBasicListComponent } from "./print-basic-list/print-basic-list.component";
 import { PromoteStudentsComponent } from "./promote-students/promote-students.component";
 import { ThemetagsimportModule } from "../../../themetagsimport/themetagsimport.module";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NbAccordionModule } from "@nebular/theme";
 import { ViewStudentComponent } from './view-student/view-student.component';
 
@@ -29,6 +29,6 @@ import { ViewStudentComponent } from './view-student/view-student.component';
     PromoteStudentsComponent,
     ViewStudentComponent
   ],
-  imports: [CommonModule, StudentsRoutingModule,ThemetagsimportModule,ReactiveFormsModule,NbAccordionModule],
+  imports: [CommonModule, StudentsRoutingModule,ThemetagsimportModule,ReactiveFormsModule,NbAccordionModule,FormsModule],
 })
 export class StudentsModule {}

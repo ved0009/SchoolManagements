@@ -1,18 +1,18 @@
- import { AfterViewInit, Component, Input, OnDestroy } from "@angular/core";
+import { AfterViewInit, Component, Input, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
 import { MasterClientService } from "../../../../Services/MasterClient/master-client.service";
 import { ToasterService } from "../../../../Services/Toaster/toaster.service";
 import { webToasterPosition } from "../../../../Services/Toaster/ToastSettings";
 import { NbThemeService } from "@nebular/theme";
 import { delay } from "rxjs/operators";
+import { DialongService } from "../../../../Services/Dialong/dialong.service";
 
 @Component({
   selector: "ngx-all-classes",
   templateUrl: "./all-classes.component.html",
   styleUrls: ["./all-classes.component.scss"],
 })
-export class AllClassesComponent   {
-
+export class AllClassesComponent {
   private value = 0;
 
   @Input()
@@ -34,7 +34,8 @@ export class AllClassesComponent   {
     private router: Router,
     private _api: MasterClientService,
     private _toaster: ToasterService,
-    private theme: NbThemeService
+    private theme: NbThemeService,
+    private _dialong: DialongService
   ) {}
   classDetail = [
     { Profile: "../assets/images/jack.png", tClass: "1st", StudentCount: "3" },
@@ -56,22 +57,42 @@ export class AllClassesComponent   {
       next: (res) => {
         if (res.statusCode === 200 && res.success) {
           this.classLists = res.responseData;
-          console.log('class',this.classLists);
-
+          console.log("class", this.classLists);
         } else {
-          this._toaster.showToast(webToasterPosition.toasterTopLeftPosition,'info','No record found');
+          this._toaster.showToast(
+            webToasterPosition.toasterTopLeftPosition,
+            "info",
+            "No record found"
+          );
         }
       },
       error: (err) => {
-        this._toaster.showToast(webToasterPosition.toasterTopLeftPosition,'danger',err.message);
+        this._toaster.showToast(
+          webToasterPosition.toasterTopLeftPosition,
+          "danger",
+          "Please contact to administrator"
+        );
       },
     });
   }
-  add(){
-
+  add() {
+    //newclass
+    this.router.navigateByUrl("/scrm/School/Class/newclass");
   }
 
-  edit(item:any){
-    this.router.navigateByUrl('/scrm/School/Class/editClass/' + item.id);
+  edit(item: any) {
+    this.router.navigateByUrl("/scrm/School/Class/editClass/" + item.id);
+  }
+  delete(item: any) {
+    this._dialong
+      .confirm("Conformation", "Do you want to delete ? ")
+      .then((res) => {
+        if (res) {
+          this._toaster.showToast(webToasterPosition.toasterTopLeftPosition,'success','Record deleted');
+        } else {
+          this._toaster.showToast(webToasterPosition.toasterTopLeftPosition,'danger','Record not deleted');
+
+        }
+      });
   }
 }
