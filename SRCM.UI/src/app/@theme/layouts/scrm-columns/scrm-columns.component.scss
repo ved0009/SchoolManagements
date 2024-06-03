@@ -11,12 +11,15 @@
     background-color: rgb(63, 86, 237);
     color: white;
   }
-  nb-layout-footer {
-    background-color: rgb(213, 82, 243);
-    // height: 40px;
+  .footer-padding{
+    padding: 7px 9px 0px 120px;
   }
+  .footer-fixed {
+    // background-color: rgb(213, 82, 243);
+    padding: 7px 9px 0px 120px;
+        // height: 40px;
+  }
+
 }
-// nb-layout-header{
-//   height: 50px;
-// }
+
 

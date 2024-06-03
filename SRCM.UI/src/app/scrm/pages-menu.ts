@@ -1,16 +1,26 @@
 import { NbMenuItem } from "@nebular/theme";
 
 export const MENU_ITEMS: NbMenuItem[] = [
+  // {
+  //   title: "SCRM",
+  //   icon: "shopping-cart-outline",
+  //   link: "/scrm/admin/dashboard",
+  //   home: true,
+
+  // },
   {
-    title: "SCRM",
-    icon: "shopping-cart-outline",
+    title: "Dashboard",
+    icon: "grid-outline",
     link: "/scrm/admin/dashboard",
     home: true,
+    expanded: true,
+
   },
 
   {
     title: "Students",
     icon: "award-outline",
+    expanded: true,
     children: [
       {
         title: "All Students",
