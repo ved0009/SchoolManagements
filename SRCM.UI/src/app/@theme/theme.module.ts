@@ -44,6 +44,8 @@ import { ScrmFooterComponent } from './components/footer/scrm-footer/scrm-footer
 import { ScrmColumnsComponent } from './layouts/scrm-columns/scrm-columns.component';
 import { AuthColumnsComponent } from './layouts/auth-columns/auth-columns.component';
 import { ScrmDialongComponent } from './components/scrm-dialong/scrm-dialong.component';
+import { MenuDetailsPipe } from './pipes/menu-details.pipe';
+import { AdminColumnComponent } from './layouts/admin-column/admin-column.component';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -71,7 +73,7 @@ const COMPONENTS = [
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
   ScrmColumnsComponent,
-  AuthColumnsComponent
+  AuthColumnsComponent,AdminColumnComponent
 ];
 const PIPES = [
   CapitalizePipe,
@@ -84,7 +86,7 @@ const PIPES = [
 @NgModule({
   imports: [CommonModule, ...NB_MODULES],
   exports: [CommonModule, ...PIPES, ...COMPONENTS],
-  declarations: [...COMPONENTS, ...PIPES, ScrmDialongComponent  ],
+  declarations: [...COMPONENTS, ...PIPES, ScrmDialongComponent, MenuDetailsPipe  ],
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders<ThemeModule> {

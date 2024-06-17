@@ -24,9 +24,10 @@ import {
 import { AuthInterceptorInterceptor } from "./Services/AuthInterceptor/auth-interceptor.interceptor";
 import { LoaderInterceptorInterceptor } from "./Services/AuthInterceptor/loader-interceptor.interceptor";
 import { LoadingComponent } from './Services/Loading/loading.component';
+import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
-  declarations: [AppComponent, LoadingComponent],
+  declarations: [AppComponent, LoadingComponent, AdminDashboardComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -43,6 +44,7 @@ import { LoadingComponent } from './Services/Loading/loading.component';
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+
   ],
   providers: [
     {
@@ -50,11 +52,11 @@ import { LoadingComponent } from './Services/Loading/loading.component';
       useClass: AuthInterceptorInterceptor,
       multi: true,
     },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoaderInterceptorInterceptor,
-      multi: true,
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: LoaderInterceptorInterceptor,
+    //   multi: false,
+    // },
   ],
   bootstrap: [AppComponent],
 })

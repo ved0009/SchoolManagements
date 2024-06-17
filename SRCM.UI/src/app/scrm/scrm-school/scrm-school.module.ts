@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { ScrmSchoolRoutingModule } from './scrm-school-routing.module';
 import { ScrmSchoolComponent } from './scrm-school.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ThemeModule } from '../../@theme/theme.module';
+import { NbMenuModule } from '@nebular/theme';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     CommonModule,
-    ScrmSchoolRoutingModule
+    ScrmSchoolRoutingModule,
+    ThemeModule,
+    NbMenuModule,
   ]
 })
 export class ScrmSchoolModule { }

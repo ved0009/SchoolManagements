@@ -38,6 +38,11 @@ const routes: Routes = [
         loadChildren: () =>
           import("./general-setting/general-setting.module").then((m) => m.GeneralSettingModule),
       },
+      {
+        path: "Account",
+        loadChildren: () =>
+          import("./accounts/accounts.module").then((m) => m.AccountsModule),
+      },
     ],
   },
 

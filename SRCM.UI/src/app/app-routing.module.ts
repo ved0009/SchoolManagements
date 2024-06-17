@@ -27,6 +27,11 @@ export const routes: Routes = [
     loadChildren: () => import('./auth/auth.module')
       .then(m => m.AuthModule),
   },
+  {
+    path: 'Admin',
+    loadChildren: () => import('./Admin/admin.module')
+      .then(m => m.AdminModule),
+  },
 
   {
     path: 'auth-neb',

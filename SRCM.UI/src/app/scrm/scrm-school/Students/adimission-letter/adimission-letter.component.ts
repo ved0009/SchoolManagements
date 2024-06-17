@@ -34,7 +34,7 @@ export class AdimissionLetterComponent {
 
   onSearchChange(searchValue: string): void {
     this._api.GetList("searchValue", "").subscribe((fruits) => {
-      this.studentLists = fruits;
+      // this.studentLists = fruits;
     });
   }
 

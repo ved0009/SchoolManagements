@@ -31,6 +31,13 @@ const routes: Routes = [
             (m) => m.ScrmSchoolModule
           ),
       },
+      {
+        path: "Teacher",
+        loadChildren: () =>
+          import("./teacher/teacher.module").then(
+            (m) => m.TeacherModule
+          ),
+      },
 
 
       // {

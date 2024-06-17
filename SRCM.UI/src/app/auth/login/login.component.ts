@@ -19,6 +19,7 @@ import { TokenServiceService } from "../../Services/TokenService/token-service.s
 })
 export class LoginComponent {
   loginform: FormGroup;
+  isLanding:boolean = false;
 
   constructor(
     private _fb: FormBuilder,

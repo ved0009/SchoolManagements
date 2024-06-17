@@ -1,0 +1,68 @@
+<!-- <nb-card>
+  <nb-card-header>Routing settings</nb-card-header>
+  <nb-card-body>
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive-lg overflow">
+          <table class="table table-light table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Module</th>
+                <th scope="col">Components</th>
+                <th scope="col">Title</th>
+                <th scope="col">Icon</th>
+
+                <th scope="col">Expanded</th>
+                <th scope="col">Access role</th>
+                <th scope="col">Order by</th>
+                <th scope="col">Is children</th>
+                <th scope="col">Is active</th>
+                <th scope="col">Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of menuList; let i = index">
+                <td scope="row">{{ i + 1 }}</td>
+                <td>{{ item.moduleName }}</td>
+                <td>{{ item.componentName }}</td>
+                <td>{{ item.title }}</td>
+                <td>{{ item.icon }}</td>
+                <td>{{ item.expanded }}</td>
+                <td>{{ item.accessRole }}</td>
+                <td>{{ item.orderby }}</td>
+                <td>{{ item.children }}</td>
+                <td>{{ item.isActive }}</td>
+                <td>{{ item.link }}</td>
+              </tr>
+            </tbody>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-lg-6 col-md-10 col-sm-12"></div>
+          <div class="col-lg-6 col-md-2 col-sm-12 float-end">
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card> -->
+
+
+<nb-card>
+  <nb-card-header>
+    Smart Table
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source"  >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+
+

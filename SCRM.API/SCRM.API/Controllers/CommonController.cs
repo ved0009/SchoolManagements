@@ -7,7 +7,7 @@ using System.Security.Claims;
 namespace SCRM.API.Controllers
 {
     [Route("api/[controller]")]
-   // [Authorize]
+    // [Authorize]
     [ApiController]
     public class CommonController : ControllerBase
     {
@@ -20,14 +20,22 @@ namespace SCRM.API.Controllers
             _commonService = commonService;
             _env = env;
 
-        
+
         }
 
         [HttpGet("GetProfileDetails")]
         public IActionResult GetProfileDetails()
         {
             int userId = Convert.ToInt32(HttpContext.User.FindFirst("UserId").Value);
-            var data = _commonService.ProfileDetails(userId);
+            var data = _commonService.GetUserMenus(userId);
+            return Ok(data);
+        }
+        [HttpGet("GetUserMenus")]
+        public IActionResult GetUserMenus()
+        {
+            //int userId = Convert.ToInt32(HttpContext.User.FindFirst("UserId").Value);
+            int userId = 5;
+            var data = _commonService.GetUserMenus(userId);
             return Ok(data);
         }
 
@@ -42,19 +50,19 @@ namespace SCRM.API.Controllers
 
 
         [HttpPost("UploadImage")]
-        public IActionResult UploadImage(IFormFile image,string FilesTypes)
+        public IActionResult UploadImage(IFormFile image, string FilesTypes)
         {
             var data = _commonService.UploadFiles(image, FilesTypes);
-           
+
             return Ok(new { url = data });
         }
 
         [HttpDelete("DeleteFiles")]
-        public IActionResult DeleteFiles(string filesName,string FileTypes)
+        public IActionResult DeleteFiles(string filesName, string FileTypes)
         {
-         return   Ok(new { filesName = filesName,message= "File deleted successfully" });
+            return Ok(new { filesName = filesName, message = "File deleted successfully" });
         }
 
 
-    }   
+    }
 }

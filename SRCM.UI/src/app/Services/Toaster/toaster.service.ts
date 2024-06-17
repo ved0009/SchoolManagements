@@ -16,4 +16,19 @@ export class ToasterService {
       type,
       {position , status });
   }
+  SomeThingWrong(){
+    this.toastrService.danger('Something went wrong','Error');
+  }
+
+  RecordFound(){
+    this.toastrService.success('Record found','Success');
+  }
+  SuccessRecord(){
+    this.toastrService.success('New request generated','Success');
+  }
+  Norecordfound(){
+    this.toastrService.info('No record found','Info');
+  }
+
+
 }

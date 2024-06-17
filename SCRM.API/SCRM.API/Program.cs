@@ -17,11 +17,12 @@ builder.Services.AddTransient<IStudent, SStudent>();
 builder.Services.AddTransient<IClassess, SClass>();
 builder.Services.AddTransient<IEmployee, SEmployee>();
 builder.Services.AddTransient<ISubject, SSubject>();
+builder.Services.AddTransient<IAdmin, SAdmin>();
 builder.Services.Configure<FormOptions>(options =>
 {
     options.MultipartBodyLengthLimit = 268435456; // 256 MB
 });
- 
+
 builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -37,7 +38,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidateIssuerSigningKey = true,
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Audience"],
-      //  ValidTypes = builder.Configuration["Jwt:Audience"],
+        //  ValidTypes = builder.Configuration["Jwt:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 });
@@ -67,7 +68,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
- 
+
     app.UseDeveloperExceptionPage();
 
 }
@@ -81,12 +82,8 @@ app.UseStaticFiles(new StaticFileOptions
 });
 
 app.UseStaticFiles(); // Add this line
- 
-
 app.UseHttpsRedirection();
- 
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-
 app.Run();

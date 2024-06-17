@@ -50,6 +50,29 @@ namespace SCRM.Model
         public DateTime CreatedOn { get; set; }
         public string RoleName { get; set; } = "User";
     }
-
-
+    public class UserMenuList
+    {
+        public int Id { get; set; }
+        public string ModuleName { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
+        public string Icon { get; set; } = string.Empty;
+        public string link { get; set; } = string.Empty;
+        public string ComponentName { get; set; } = string.Empty;
+        public int Children { get; set; } 
+        public int Orderby { get; set; } 
+    }
+    public class AdminMenuLists
+    {
+        public int Id { get; set; }
+        public string ModuleName { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
+        public string Icon { get; set; } = string.Empty;
+        public string link { get; set; } = string.Empty;
+        public string ComponentName { get; set; } = string.Empty;
+        public int Children { get; set; }
+        public int Orderby { get; set; }
+        public int AccessRole { get; set; }
+        public int IsActive { get; set; }
+        public int Expanded { get; set; }
+    }
 }

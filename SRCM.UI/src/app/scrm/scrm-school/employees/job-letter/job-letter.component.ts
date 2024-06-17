@@ -9,7 +9,7 @@ import { webToasterPosition } from '../../../../Services/Toaster/ToastSettings';
   styleUrls: ['./job-letter.component.scss']
 })
 export class JobLetterComponent {
-  
+
   searchTerm: string = '';
   employeeOptions: Array<{ id: string, name: string }> = [];
   filteredOptions: Array<{ id: string, name: string }> = [];
@@ -26,7 +26,7 @@ export class JobLetterComponent {
       debugger
       this.employeeOptions = res.responseData;
       this.filteredOptions = res.responseData;
-      
+
 
     });
   }
@@ -34,11 +34,12 @@ export class JobLetterComponent {
   query: string = '';
   employees: any[] = [];
 
-   
+
 
   searchEmployee() {
     if (this.query) {
       this._api.Get('Employee','GetEmployee').subscribe(res => {
+
         this.employees =  res.responseData;
       });
     } else {
@@ -47,13 +48,13 @@ export class JobLetterComponent {
   }
 
   selectEmployee(employee: any) {
-    
+
     this._api.Get('Employee',`GetEmployeeById/${employee.id}`).subscribe({
       next: (res) => {
 
         this.selectedEmployee = res.responseData;
         this.isPrint=true;
-       
+
         console.log("Subject lists", this.selectedEmployee);
       },
       error: (err) => {

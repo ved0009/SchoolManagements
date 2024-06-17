@@ -1,1 +1,32 @@
-<p>promote-students works!</p>
+<div class="row">
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="inputLastName" class="label">Select Class</label>
+      <!-- classLists -->
+      <label for="inputEmail" class="Mandatory text-danger">*</label>
+      <nb-select
+        fullWidth
+        placeholder="Select"
+        class="mt-0"
+        formControlName="PClass"
+      >
+        <nb-option *ngFor="let item of classLists" [value]="item.id">
+          {{ item.className }}</nb-option
+        >
+      </nb-select>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <button nbButton  class="mt-4" status="info">Search</button>
+  </div>
+</div>
+<nb-card>
+  <nb-card-header>
+    Student lists
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source"  >
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

@@ -31,9 +31,10 @@ export class TokenServiceService {
       debugger
       const roleId = this.getUser().roleId;
       if (roleId == 1) {
+        this.router.navigateByUrl("Admin/dashboard");
+      } else if (roleId == 2) {
         this.router.navigateByUrl("scrm/admin/dashboard");
-      } else if (roleId == 13) {
-        this.router.navigateByUrl("pages");
+
       }else if (roleId == 200) {
         this.router.navigateByUrl('ereport/admin/');
       }

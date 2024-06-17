@@ -8,11 +8,14 @@ namespace SCRM.IService
         Response CheckDb();
 
         Response ProfileDetails(int userid);
+        Response GetUserMenus(int userid);
   
         Response GetRole();
         Response CreateUserLogins(int userid);
         Response DeleteFiles(string FileName, string FileTypes);
         Response UploadFiles(IFormFile file, string FileTypes);
+        Response GetImages(string FileTypes);
+        Response GetAllImages();
  
      }
 }

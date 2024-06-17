@@ -222,5 +222,70 @@ namespace SCRM.Service
 
             //var fileUrl = $"{Request.Scheme}://{Request.Host}/Images/{FilesTypes}/{image.FileName}";
         }
+
+        public Response GetUserMenus(int userid)
+        {
+            using (response = new Response())
+            {
+                try
+                { 
+
+                    List<UserMenuList> menulists = new List<UserMenuList>();
+                    var param = new DynamicParameters();
+                    param.Add("@proles", userid, DbType.Int32);
+                    param.Add("@prolename", "Hello", DbType.String);
+                    menulists = _dapper.GetAll<UserMenuList>("sp_std_GetMenus", param, commandType: CommandType.StoredProcedure);
+                    if (menulists != null)
+                    {
+
+                        response.totalRecords = menulists.Count;
+                        response.message = "Success";
+                        response.success = true;
+                        response.responseData = menulists;
+
+                    }
+                    else
+                    {
+                        response.totalRecords = 0;
+                        response.message = "No record found";
+                        response.success = false;
+                        response.responseData = null;
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    response.totalRecords = -1;
+                    response.message = ex.Message;
+                    response.success = false;
+                    response.responseData = ex.Message;
+                }
+
+            }
+            return response;
+        }
+
+        public Response GetImages(string FileTypes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Response GetAllImages()
+        {
+            using (var respone = new Response())
+            {
+                try
+                {
+                     
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+            }
+            return response;
+        }
     }
 }

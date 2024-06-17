@@ -63,14 +63,9 @@ export class AllStudentsComponent {
           item.studentId = "FPSSS" + item.id;
         });
 
-        console.log("student lists", this.studentsLists);
-      },
+       },
       error: (err) => {
-        this.toaster.showToast(
-          webToasterPosition.toasterTopLeftPosition,
-          "danger",
-          err.message
-        );
+        this.toaster.SomeThingWrong();
       },
     });
   }

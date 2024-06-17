@@ -37,6 +37,7 @@ export class LoaderInterceptorInterceptor implements HttpInterceptor {
         },
         (error: any) => {
            if (error instanceof HttpErrorResponse) {
+            debugger
             if (error.status===401) {
               this._dl.showToast(webToasterPosition.toasterTopLeftPosition,'danger','Please login again');
               // this._router.navigateByUrl('/auth');
@@ -54,9 +55,9 @@ export class LoaderInterceptorInterceptor implements HttpInterceptor {
         }
       ),
        finalize(() => {
-        // setTimeout(() => {
+         setTimeout(() => {
           this.spinnerService.hideLoad();
-        // }, 8000);
+         }, 1000);
 
        })
      );
